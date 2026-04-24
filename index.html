@@ -33,7 +33,6 @@ nav a {
     margin: 0 15px;
     text-decoration: none;
     font-weight: 600;
-    transition: 0.3s;
 }
 
 nav a:hover {
@@ -52,11 +51,6 @@ nav a:hover {
     border-radius: 50%;
     border: 3px solid #00f7ff;
     box-shadow: 0 0 25px #00f7ff;
-    transition: 0.3s;
-}
-
-.hero img:hover {
-    transform: scale(1.05);
 }
 
 .hero h1 {
@@ -72,9 +66,25 @@ nav a:hover {
     color: #cfcfcf;
 }
 
+/* BUTTONS */
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 18px;
+    border-radius: 8px;
+    background: #00f7ff;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: #00ff88;
+}
+
 /* SECTIONS */
 section {
-    padding: 70px 20px;
+    padding: 80px 20px;
     max-width: 1000px;
     margin: auto;
 }
@@ -83,7 +93,6 @@ h2 {
     color: #00f7ff;
     border-left: 4px solid #00ff88;
     padding-left: 12px;
-    margin-bottom: 20px;
 }
 
 /* CARDS */
@@ -98,18 +107,29 @@ h2 {
     padding: 20px;
     border-radius: 12px;
     border: 1px solid rgba(0,255,255,0.15);
-    transition: 0.3s;
 }
 
 .card:hover {
     transform: translateY(-5px);
-    border-color: #00f7ff;
-    box-shadow: 0 0 15px rgba(0,247,255,0.2);
+    transition: 0.3s;
 }
 
-/* CONTACT */
+/* LINKS */
 a {
     color: #00ff88;
+}
+
+/* GALLERY */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid #00f7ff;
 }
 </style>
 
@@ -122,6 +142,7 @@ a {
     <a href="#skills">Skills</a>
     <a href="#experience">Experience</a>
     <a href="#projects">Projects</a>
+    <a href="#gallery">Gallery</a>
     <a href="#education">Education</a>
     <a href="#contact">Contact</a>
 </nav>
@@ -134,9 +155,12 @@ a {
 
     <p>
         I am a Software Engineering student at GISMA University of Applied Sciences in Berlin.
-        I am passionate about building software, solving problems, and becoming a full-stack developer.
-        My long-term goal is to reach advanced academic level and contribute to technology and society.
+        I am passionate about building software, solving real-world problems, and growing into a professional full-stack developer.
+        My goal is to reach advanced academic and professional levels and contribute to technology that improves society.
     </p>
+
+    <a class="btn" href="#contact">Hire Me</a>
+    <a class="btn" href="#">Download CV</a>
 </div>
 
 <section id="skills">
@@ -158,29 +182,37 @@ a {
 </div>
 </section>
 
-<!-- PROJECTS (NEW SECTION ADDED) -->
 <section id="projects">
 <h2>Projects</h2>
 <div class="grid">
 
     <div class="card">
-        <h3>Personal Portfolio Website</h3>
-        <p>My first professional portfolio built using HTML and CSS.</p>
+        <h3>Portfolio Website</h3>
+        <p>Personal portfolio using HTML & CSS.</p>
         <p><strong>Tech:</strong> HTML, CSS</p>
     </div>
 
     <div class="card">
-        <h3>Student Management System</h3>
-        <p>A beginner Java project to manage student data and records.</p>
+        <h3>Student System</h3>
+        <p>Java project for managing student data.</p>
         <p><strong>Tech:</strong> Java</p>
     </div>
 
     <div class="card">
         <h3>To-Do App</h3>
-        <p>Simple productivity app for managing daily tasks.</p>
+        <p>Task management app for productivity.</p>
         <p><strong>Tech:</strong> Python</p>
     </div>
 
+</div>
+</section>
+
+<section id="gallery">
+<h2>Gallery</h2>
+<div class="gallery">
+    <img src="photo1.jpg">
+    <img src="photo2.jpg">
+    <img src="photo3.jpg">
 </div>
 </section>
 
