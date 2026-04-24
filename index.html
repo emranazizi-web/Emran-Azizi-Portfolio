@@ -3,25 +3,57 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Emran Azizi | Portfolio</title>
+<title>Emran Azizi | Software Engineer</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-body {
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     font-family: 'Inter', sans-serif;
-    background: #05070c;
-    color: #eaeaea;
+    color: #fff;
+    background: #0a0f1c;
     overflow-x: hidden;
 }
 
-/* BACKGROUND */
-#bg {
+/* ===== ANIMATED BACKGROUND ===== */
+.background {
     position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(-45deg, #0a0f1c, #001a33, #002b36, #0a0f1c);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+    z-index: -2;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* FLOATING LIGHTS */
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(0, 247, 255, 0.15);
+    filter: blur(40px);
+    animation: float 10s infinite ease-in-out;
+}
+
+.circle:nth-child(1) { width: 200px; height: 200px; top: 10%; left: 20%; }
+.circle:nth-child(2) { width: 300px; height: 300px; bottom: 10%; right: 15%; }
+.circle:nth-child(3) { width: 150px; height: 150px; top: 60%; left: 70%; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-40px); }
 }
 
 /* NAV */
@@ -29,10 +61,10 @@ nav {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(10,10,10,0.7);
     padding: 15px;
     text-align: center;
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(15px);
+    background: rgba(0,0,0,0.3);
     z-index: 1000;
 }
 
@@ -46,7 +78,7 @@ nav a {
 /* HERO */
 .hero {
     text-align: center;
-    padding: 140px 20px 60px;
+    padding: 140px 20px 80px;
 }
 
 .hero img {
@@ -58,24 +90,23 @@ nav a {
 }
 
 .hero h1 {
-    color: #00f7ff;
-    font-size: 46px;
+    font-size: 52px;
     margin-top: 20px;
-    letter-spacing: 1px;
+    color: #00f7ff;
 }
 
 .hero p {
     max-width: 750px;
-    margin: auto;
-    color: #cfcfcf;
+    margin: 15px auto;
+    color: #cfd8dc;
     line-height: 1.7;
 }
 
 /* BADGE */
 .badge {
     display: inline-block;
-    margin-top: 10px;
     padding: 8px 14px;
+    margin-top: 10px;
     border-radius: 20px;
     background: #00ff88;
     color: black;
@@ -86,64 +117,63 @@ nav a {
 /* BUTTON */
 .btn {
     display: inline-block;
-    margin-top: 15px;
+    margin: 10px;
     padding: 12px 18px;
-    border-radius: 8px;
+    border-radius: 10px;
     background: #00f7ff;
     color: black;
     font-weight: bold;
     text-decoration: none;
+    transition: 0.3s;
 }
 
 .btn:hover {
+    transform: scale(1.05);
     background: #00ff88;
 }
 
 /* SECTIONS */
 section {
-    padding: 90px 20px;
-    max-width: 1000px;
+    padding: 80px 20px;
+    max-width: 1100px;
     margin: auto;
-    scroll-margin-top: 100px;
 }
 
 h2 {
-    color: #00f7ff;
+    font-size: 28px;
+    margin-bottom: 20px;
     border-left: 4px solid #00ff88;
     padding-left: 12px;
+    color: #00f7ff;
 }
 
 /* GRID */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 20px;
 }
 
-/* CARDS */
+/* GLASS CARD */
 .card {
-    background: rgba(18, 26, 36, 0.85);
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(0,247,255,0.2);
+    border-radius: 15px;
     padding: 20px;
-    border-radius: 12px;
-    border: 1px solid rgba(0,255,255,0.15);
-    backdrop-filter: blur(8px);
-    transition: 0.3s;
+    backdrop-filter: blur(12px);
+    transition: 0.4s;
+    transform-style: preserve-3d;
 }
 
 .card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-10px) scale(1.02);
     border-color: #00f7ff;
-    box-shadow: 0 0 20px rgba(0,247,255,0.2);
+    box-shadow: 0 0 25px rgba(0,247,255,0.2);
 }
 
 .card h3 {
     color: #00f7ff;
-}
-
-.card p {
-    color: #cfcfcf;
-    font-size: 14px;
-    line-height: 1.6;
+    margin-bottom: 10px;
 }
 
 /* LINKS */
@@ -152,25 +182,38 @@ a {
     text-decoration: none;
 }
 
+/* ANIMATION ON SCROLL */
+.hidden {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.6s ease;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* MOBILE */
 @media (max-width: 600px) {
-    .hero h1 { font-size: 32px; }
+    .hero h1 { font-size: 34px; }
 }
 </style>
-
 </head>
 
 <body>
 
 <!-- BACKGROUND -->
-<canvas id="bg"></canvas>
+<div class="background"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
 
 <nav>
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
     <a href="#experience">Experience</a>
     <a href="#projects">Projects</a>
-    <a href="#education">Education</a>
     <a href="#contact">Contact</a>
 </nav>
 
@@ -185,142 +228,93 @@ a {
     </p>
 
     <div class="badge">
-        Open to Full-Time, Part-Time & Student (Werkstudent) Roles
+        Open to Full-Time • Part-Time • Werkstudent Roles
     </div>
 
     <p>
-        I am a Software Engineering student at GISMA University of Applied Sciences in Berlin.
-        I focus on building real-world applications, improving my full-stack development skills,
-        and gaining practical experience through projects and industry opportunities.
+        Software Engineering student at GISMA University of Applied Sciences in Berlin.
+        Focused on building scalable systems, clean UI/UX, and real-world software solutions.
+        Passionate about growth, technology, and problem-solving.
     </p>
 
-    <a class="btn" href="#projects">View Projects</a>
-    <a class="btn" href="#contact">Contact Me</a>
+    <a class="btn" href="#projects">View Work</a>
+    <a class="btn" href="#contact">Contact</a>
 </div>
 
 <!-- SKILLS -->
-<section id="skills">
+<section id="skills" class="hidden">
 <h2>Skills</h2>
 <div class="grid">
-    <div class="card">Python (Beginner)</div>
-    <div class="card">HTML & CSS</div>
-    <div class="card">Git & GitHub</div>
+    <div class="card"><h3>Python</h3></div>
+    <div class="card"><h3>HTML & CSS</h3></div>
+    <div class="card"><h3>Git & GitHub</h3></div>
+    <div class="card"><h3>Problem Solving</h3></div>
 </div>
 </section>
 
 <!-- EXPERIENCE -->
-<section id="experience">
+<section id="experience" class="hidden">
 <h2>Experience</h2>
 <div class="grid">
-    <div class="card">Computer Lab Assistant</div>
-    <div class="card">Restaurant Worker</div>
-    <div class="card">Warehouse Worker</div>
+    <div class="card"><h3>Computer Lab Assistant</h3></div>
+    <div class="card"><h3>Restaurant Worker</h3></div>
+    <div class="card"><h3>Warehouse Worker</h3></div>
 </div>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects">
-<h2>Selected Projects</h2>
-
+<section id="projects" class="hidden">
+<h2>Projects</h2>
 <div class="grid">
 
     <div class="card">
         <h3>Portfolio Website</h3>
-        <p>Modern responsive portfolio built with HTML, CSS, and JavaScript.</p>
-        <p><strong>Focus:</strong> UI Design</p>
+        <p>Modern developer portfolio with animations and responsive design.</p>
     </div>
 
     <div class="card">
-        <h3>Student Management System</h3>
-        <p>System for managing student data using structured programming.</p>
-        <p><strong>Focus:</strong> Logic & OOP</p>
+        <h3>Student System</h3>
+        <p>Data management system built with structured logic.</p>
     </div>
 
     <div class="card">
         <h3>To-Do App</h3>
-        <p>Task management application for productivity improvement.</p>
-        <p><strong>Focus:</strong> Python Logic</p>
+        <p>Productivity application built in Python.</p>
     </div>
 
 </div>
 </section>
 
-<!-- EDUCATION -->
-<section id="education">
-<h2>Education</h2>
-<div class="card">
-GISMA University of Applied Sciences — BEng Software Engineering (Ongoing)
-</div>
-</section>
-
 <!-- CONTACT -->
-<section id="contact">
+<section id="contact" class="hidden">
 <h2>Contact</h2>
 
 <div class="card">
     <p>Email: <a href="mailto:emranazizi1002@gmail.com">emranazizi1002@gmail.com</a></p>
 
     <p>Instagram: 
-        <a href="https://www.instagram.com/shahzada_official_001" target="_blank">
-            @shahzada_official_001
-        </a>
+        <a href="https://www.instagram.com/shahzada_official_001" target="_blank">@instagram</a>
     </p>
 
     <p>LinkedIn: 
-        <a href="https://www.linkedin.com/in/emran-azizi-5b2409403" target="_blank">
-            Emran Azizi
-        </a>
+        <a href="https://www.linkedin.com/in/emran-azizi-5b2409403" target="_blank">Profile</a>
     </p>
 
-    <p>Status: Open to Full-Time, Part-Time, and Student (Werkstudent) Software Roles</p>
+    <p>Status: Open to Full-Time, Part-Time & Werkstudent Roles</p>
 </div>
 </section>
 
-<!-- NEON BACKGROUND -->
 <script>
-const canvas = document.getElementById("bg");
-const ctx = canvas.getContext("2d");
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let particles = [];
-
-for (let i = 0; i < 80; i++) {
-    particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        r: Math.random() * 2,
-        dx: (Math.random() - 0.5) * 1,
-        dy: (Math.random() - 0.5) * 1
+// SCROLL ANIMATION
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
     });
-}
-
-function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "#00f7ff";
-
-    particles.forEach(p => {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fill();
-
-        p.x += p.dx;
-        p.y += p.dy;
-
-        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-    });
-
-    requestAnimationFrame(animate);
-}
-
-animate();
-
-window.addEventListener("resize", () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
 });
+
+document.querySelectorAll(".hidden").forEach(el => observer.observe(el));
 </script>
 
 </body>
