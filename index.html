@@ -8,42 +8,20 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
+    margin: 0;
     font-family: 'Inter', sans-serif;
     background: #05070f;
     color: white;
     overflow-x: hidden;
 }
 
-/* ===== BACKGROUND ===== */
-.bg {
+/* ===== CODE STREAM BACKGROUND ===== */
+canvas {
     position: fixed;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at top, #0b1b2e, #05070f);
-    z-index: -3;
-}
-
-/* FLOATING PARTICLES */
-.particle {
-    position: absolute;
-    width: 5px;
-    height: 5px;
-    background: #00f7ff;
-    border-radius: 50%;
-    opacity: 0.4;
-    animation: floatUp linear infinite;
-}
-
-@keyframes floatUp {
-    from { transform: translateY(100vh); opacity: 0; }
-    to { transform: translateY(-10vh); opacity: 1; }
+    top: 0;
+    left: 0;
+    z-index: -2;
 }
 
 /* NAV */
@@ -51,10 +29,10 @@ nav {
     position: fixed;
     top: 0;
     width: 100%;
+    backdrop-filter: blur(15px);
+    background: rgba(0,0,0,0.35);
     padding: 12px;
     text-align: center;
-    backdrop-filter: blur(12px);
-    background: rgba(0,0,0,0.4);
     z-index: 1000;
 }
 
@@ -69,7 +47,6 @@ nav a {
 .hero {
     text-align: center;
     padding: 140px 20px 60px;
-    perspective: 1000px;
 }
 
 .hero img {
@@ -77,35 +54,34 @@ nav a {
     border-radius: 50%;
     border: 3px solid #00f7ff;
     box-shadow: 0 0 40px #00f7ff;
-    transition: transform 0.3s;
-}
-
-.hero img:hover {
-    transform: rotateY(15deg) scale(1.05);
 }
 
 .hero h1 {
-    font-size: 50px;
+    font-size: 52px;
     color: #00f7ff;
-    margin-top: 15px;
 }
 
 .hero p {
-    max-width: 800px;
-    margin: 10px auto;
+    max-width: 850px;
+    margin: auto;
     color: #cfd8dc;
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
 /* BADGE */
 .badge {
     display: inline-block;
-    margin-top: 10px;
     padding: 8px 14px;
     background: #00ff88;
     color: black;
     border-radius: 20px;
     font-weight: bold;
+    margin-top: 10px;
+}
+
+/* LINKS */
+a {
+    color: #00ff88;
 }
 
 /* BUTTON */
@@ -117,17 +93,11 @@ nav a {
     color: black;
     border-radius: 10px;
     text-decoration: none;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    transform: scale(1.05);
-    background: #00ff88;
 }
 
 /* SECTIONS */
 section {
-    padding: 70px 20px;
+    padding: 80px 20px;
     max-width: 1100px;
     margin: auto;
 }
@@ -136,7 +106,6 @@ h2 {
     color: #00f7ff;
     border-left: 4px solid #00ff88;
     padding-left: 12px;
-    margin-bottom: 20px;
 }
 
 /* GRID */
@@ -146,19 +115,12 @@ h2 {
     gap: 20px;
 }
 
-/* CARDS */
+/* CARD */
 .card {
     background: rgba(255,255,255,0.05);
     border: 1px solid rgba(0,247,255,0.2);
-    border-radius: 15px;
     padding: 20px;
-    backdrop-filter: blur(10px);
-    transition: 0.4s;
-}
-
-.card:hover {
-    transform: translateY(-8px) rotateX(5deg);
-    border-color: #00f7ff;
+    border-radius: 15px;
 }
 
 /* GALLERY */
@@ -173,27 +135,13 @@ h2 {
     height: 150px;
     object-fit: cover;
     border-radius: 10px;
-    border: 1px solid #00f7ff;
-    transition: 0.3s;
-}
-
-.gallery img:hover {
-    transform: scale(1.08);
-}
-
-/* LINKS */
-a { color: #00ff88; }
-
-/* MOBILE */
-@media (max-width: 600px) {
-    .hero h1 { font-size: 32px; }
 }
 </style>
 </head>
 
 <body>
 
-<div class="bg"></div>
+<canvas id="code"></canvas>
 
 <nav>
     <a href="#about">About</a>
@@ -212,28 +160,28 @@ a { color: #00ff88; }
     <h1>Emran Azizi</h1>
 
     <p style="color:#00f7ff; font-weight:600;">
-        Software Engineering Student | Full-Stack Developer | AI Enthusiast
+        Software Engineering Student | Future Full-Stack Developer | AI Enthusiast
     </p>
 
     <div class="badge">
-        OPEN TO: PART-TIME • STUDENT JOB (WERKSTUDENT)
+        OPEN TO PART-TIME / STUDENT JOB (WERKSTUDENT ONLY)
     </div>
 
     <p>
-        I am a Software Engineering student at GISMA University of Applied Sciences in Berlin,
-        currently in my second semester. I am originally from Afghanistan and currently living in Germany.
+        I am 25 years old from Afghanistan, currently living in Berlin.
+        I am studying Software Engineering at GISMA University of Applied Sciences (2nd semester).
     </p>
 
     <p>
-        I am passionate about AI, modern software systems, and full-stack development.
-        My goal is to become a highly skilled software engineer and continue my academic journey up to PhD level.
+        I am an ethical, open-minded and disciplined person with strong passion for technology, AI systems,
+        and modern software development.
     </p>
 
     <p>
-        I am an ethical, open-minded, and motivated individual who values discipline, learning, and contributing to society.
+        My goal is to become a professional full-stack developer and continue my education up to PhD level.
+        I enjoy problem solving, coding, and building real-world applications.
     </p>
 
-    <a class="btn" href="#projects">View Projects</a>
     <a class="btn" href="#contact">Contact Me</a>
 
 </div>
@@ -245,7 +193,7 @@ a { color: #00ff88; }
     <div class="card">Python (Beginner)</div>
     <div class="card">HTML & CSS</div>
     <div class="card">Git & GitHub</div>
-    <div class="card">AI Tools for Development</div>
+    <div class="card">AI Tools in Development</div>
 </div>
 
 <h2>Languages</h2>
@@ -262,7 +210,7 @@ a { color: #00ff88; }
 <div class="grid">
     <div class="card">Computer Lab Assistant</div>
     <div class="card">Restaurant Worker</div>
-    <div class="card">Warehouse Worker</div>
+    <div class="card">Logistics Warehouse Worker</div>
 </div>
 </section>
 
@@ -271,13 +219,22 @@ a { color: #00ff88; }
 <h2>Projects</h2>
 <div class="grid">
     <div class="card">Portfolio Website</div>
-    <div class="card">Student Management System</div>
+    <div class="card">Student System</div>
     <div class="card">To-Do App</div>
 </div>
 </section>
 
-<!-- GALLERY -->
+<!-- HOBBIES -->
 <section id="gallery">
+<h2>Hobbies</h2>
+<div class="grid">
+    <div class="card">Gaming</div>
+    <div class="card">Cooking</div>
+    <div class="card">Movies</div>
+    <div class="card">Swimming</div>
+    <div class="card">Gym</div>
+</div>
+
 <h2>Gallery</h2>
 <div class="gallery">
     <img src="img1.jpg">
@@ -294,24 +251,68 @@ a { color: #00ff88; }
 <h2>Contact</h2>
 
 <div class="card">
-    <p>Email: <a href="mailto:emranazizi1002@gmail.com">emranazizi1002@gmail.com</a></p>
 
-    <p>Instagram: 
-        <a href="https://www.instagram.com/shahzada_official_001" target="_blank">
-            Open Instagram
-        </a>
-    </p>
+<p>Email:
+<a href="mailto:emranazizi1002@gmail.com">emranazizi1002@gmail.com</a>
+</p>
 
-    <p>LinkedIn: 
-        <a href="https://www.linkedin.com/in/emran-azizi-5b2409403" target="_blank">
-            Open LinkedIn
-        </a>
-    </p>
+<p>Instagram:
+<a href="https://www.instagram.com/shahzada_official_001" target="_blank">
+Open Instagram
+</a>
+</p>
 
-    <p>Status: Open ONLY for Part-Time / Student Job (Werkstudent)</p>
+<p>LinkedIn:
+<a href="https://www.linkedin.com/in/emran-azizi-5b2409403" target="_blank">
+Open LinkedIn
+</a>
+</p>
+
+<p>Status: Open ONLY for Part-Time / Student Job (Werkstudent)</p>
+
 </div>
-
 </section>
+
+<script>
+// ===== CODE STREAM BACKGROUND =====
+const canvas = document.getElementById("code");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let letters = "010101001011001011010101JAVA PYTHON HTML CSS AI DATA SQL GIT".split("");
+
+let fontSize = 14;
+let columns = canvas.width / fontSize;
+
+let drops = [];
+
+for(let x=0;x<columns;x++){
+    drops[x] = 1;
+}
+
+function draw(){
+    ctx.fillStyle = "rgba(0,0,0,0.05)";
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+
+    ctx.fillStyle = "#00f7ff";
+    ctx.font = fontSize + "px monospace";
+
+    for(let i=0;i<drops.length;i++){
+        let text = letters[Math.floor(Math.random()*letters.length)];
+        ctx.fillText(text, i*fontSize, drops[i]*fontSize);
+
+        if(drops[i]*fontSize > canvas.height && Math.random() > 0.975){
+            drops[i]=0;
+        }
+
+        drops[i]++;
+    }
+}
+
+setInterval(draw, 35);
+</script>
 
 </body>
 </html>
