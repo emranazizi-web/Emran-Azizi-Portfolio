@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Emran Azizi | Software Engineer</title>
+<title>Emran Azizi | 3D Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -11,43 +11,35 @@
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
-    background: #05070c;
-    color: #eaeaea;
+    color: white;
+    background: #05070f;
     overflow-x: hidden;
 }
 
-/* ===== 3D NEON BACKGROUND ===== */
-.background {
+/* ===== 3D ANIMATED BACKGROUND ===== */
+.bg {
     position: fixed;
     width: 100%;
     height: 100%;
-    background: linear-gradient(-45deg, #0a0f1c, #001a33, #002b36, #0a0f1c);
-    background-size: 400% 400%;
-    animation: gradientMove 12s ease infinite;
+    background: radial-gradient(circle at top, #0a1a2f, #05070f);
     z-index: -3;
 }
 
-@keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-.glow {
+/* FLOATING PARTICLES */
+.particle {
     position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #00f7ff;
     border-radius: 50%;
-    background: rgba(0, 247, 255, 0.15);
-    filter: blur(50px);
-    animation: float 8s ease-in-out infinite;
+    opacity: 0.5;
+    animation: float 10s infinite linear;
 }
-
-.glow:nth-child(1){width:250px;height:250px;top:10%;left:20%;}
-.glow:nth-child(2){width:300px;height:300px;bottom:10%;right:15%;}
-.glow:nth-child(3){width:180px;height:180px;top:60%;left:70%;}
 
 @keyframes float {
-    0%,100%{transform:translateY(0px);}
-    50%{transform:translateY(-40px);}
+    0% { transform: translateY(0); opacity: 0.2; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-1000px); opacity: 0; }
 }
 
 /* NAV */
@@ -55,16 +47,16 @@ nav {
     position: fixed;
     top: 0;
     width: 100%;
-    padding: 15px;
-    text-align: center;
     backdrop-filter: blur(15px);
-    background: rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.4);
+    padding: 12px;
+    text-align: center;
     z-index: 1000;
 }
 
 nav a {
     color: #00f7ff;
-    margin: 0 15px;
+    margin: 0 12px;
     text-decoration: none;
     font-weight: 600;
 }
@@ -73,50 +65,59 @@ nav a {
 .hero {
     text-align: center;
     padding: 140px 20px 60px;
+    perspective: 1000px;
 }
 
 .hero img {
     width: 150px;
-    height: 150px;
     border-radius: 50%;
     border: 3px solid #00f7ff;
     box-shadow: 0 0 40px #00f7ff;
+    transition: transform 0.5s;
+}
+
+.hero img:hover {
+    transform: rotateY(20deg) scale(1.05);
 }
 
 .hero h1 {
-    font-size: 52px;
+    font-size: 55px;
     color: #00f7ff;
-    margin-top: 20px;
 }
 
 .hero p {
-    max-width: 850px;
-    margin: 15px auto;
+    max-width: 800px;
+    margin: auto;
     color: #cfd8dc;
-    line-height: 1.7;
+    line-height: 1.6;
 }
 
 /* BADGE */
 .badge {
     display: inline-block;
-    padding: 8px 14px;
     margin-top: 10px;
-    border-radius: 20px;
+    padding: 8px 14px;
     background: #00ff88;
     color: black;
+    border-radius: 20px;
     font-weight: bold;
 }
 
-/* BUTTON */
+/* BUTTONS */
 .btn {
     display: inline-block;
     margin: 10px;
     padding: 12px 18px;
-    border-radius: 10px;
     background: #00f7ff;
     color: black;
-    font-weight: bold;
+    border-radius: 10px;
     text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    background: #00ff88;
 }
 
 /* SECTIONS */
@@ -132,33 +133,33 @@ h2 {
     padding-left: 12px;
 }
 
-/* GRID */
+/* 3D CARDS */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
 }
 
-/* CARD */
 .card {
     background: rgba(255,255,255,0.05);
     border: 1px solid rgba(0,247,255,0.2);
-    border-radius: 15px;
     padding: 20px;
+    border-radius: 15px;
     backdrop-filter: blur(10px);
     transition: 0.4s;
+    transform-style: preserve-3d;
 }
 
 .card:hover {
-    transform: translateY(-8px);
-    border-color: #00f7ff;
+    transform: rotateY(10deg) translateY(-10px);
+    box-shadow: 0 0 25px #00f7ff;
 }
 
 /* GALLERY */
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 12px;
+    gap: 10px;
 }
 
 .gallery img {
@@ -167,21 +168,25 @@ h2 {
     object-fit: cover;
     border-radius: 10px;
     border: 1px solid #00f7ff;
+    transition: 0.4s;
 }
 
-/* TEXT */
-a { color: #00ff88; }
-</style>
+.gallery img:hover {
+    transform: scale(1.08);
+}
 
+/* MOBILE */
+@media (max-width: 600px) {
+    .hero h1 { font-size: 32px; }
+}
+</style>
 </head>
 
 <body>
 
-<div class="background"></div>
-<div class="glow"></div>
-<div class="glow"></div>
-<div class="glow"></div>
+<div class="bg"></div>
 
+<!-- NAV -->
 <nav>
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
@@ -193,25 +198,29 @@ a { color: #00ff88; }
 
 <!-- HERO -->
 <div class="hero" id="about">
+
     <img src="profile.jpg">
 
     <h1>Emran Azizi</h1>
 
     <p style="color:#00f7ff; font-weight:600;">
-        Software Engineering Student | Full-Stack Developer | Open to Work
+        Software Engineering Student | Full-Stack Developer
     </p>
 
     <div class="badge">
-        Open to Full-Time • Part-Time • Werkstudent Roles
+        OPEN TO: PART-TIME • STUDENT JOB (WERKSTUDENT)
     </div>
 
     <p>
         I am 25 years old from Afghanistan, currently living in Berlin.
-        I am a Software Engineering student at GISMA University of Applied Sciences (second semester).
-        I am an open-minded and ethical person passionate about technology, AI, and software development.
-        My goal is to become a professional full-stack developer and continue my studies up to PhD level.
-        I value humanity, personal growth, and contributing positively to society.
+        I study Software Engineering at GISMA University of Applied Sciences (2nd semester).
+        I am passionate about AI, software development, and building real-world systems.
+        My goal is to become a professional full-stack developer and continue up to PhD level.
     </p>
+
+    <a class="btn" href="#projects">Projects</a>
+    <a class="btn" href="#contact">Contact</a>
+
 </div>
 
 <!-- SKILLS -->
@@ -221,14 +230,7 @@ a { color: #00ff88; }
     <div class="card">Python (Beginner)</div>
     <div class="card">HTML & CSS</div>
     <div class="card">Git & GitHub</div>
-    <div class="card">AI Tools for Development</div>
-</div>
-
-<h2>Languages</h2>
-<div class="grid">
-    <div class="card">Dari (Native)</div>
-    <div class="card">English (Good)</div>
-    <div class="card">German (Basic)</div>
+    <div class="card">AI Tools for Coding</div>
 </div>
 </section>
 
@@ -238,7 +240,7 @@ a { color: #00ff88; }
 <div class="grid">
     <div class="card">Computer Lab Assistant</div>
     <div class="card">Restaurant Worker</div>
-    <div class="card">Logistics Warehouse Worker</div>
+    <div class="card">Warehouse Worker</div>
 </div>
 </section>
 
@@ -247,7 +249,7 @@ a { color: #00ff88; }
 <h2>Projects</h2>
 <div class="grid">
     <div class="card">Portfolio Website</div>
-    <div class="card">Student Management System</div>
+    <div class="card">Student System</div>
     <div class="card">To-Do App</div>
 </div>
 </section>
@@ -258,17 +260,9 @@ a { color: #00ff88; }
 <div class="grid">
     <div class="card">Gaming</div>
     <div class="card">Cooking</div>
-    <div class="card">Watching Movies</div>
+    <div class="card">Movies</div>
     <div class="card">Swimming</div>
-    <div class="card">Gym / Fitness</div>
-</div>
-</section>
-
-<!-- GOALS -->
-<section id="goals">
-<h2>Goals</h2>
-<div class="card">
-Become a professional full-stack software engineer, gain industry experience in Germany, and continue academic studies up to PhD level in Software Engineering.
+    <div class="card">Gym</div>
 </div>
 </section>
 
@@ -290,10 +284,10 @@ Become a professional full-stack software engineer, gain industry experience in 
 <h2>Contact</h2>
 
 <div class="card">
-<p>Email: emranazizi1002@gmail.com</p>
-<p>Instagram: @shahzada_official_001</p>
-<p>LinkedIn: Emran Azizi</p>
-<p>Status: Open to Full-Time, Part-Time & Werkstudent Roles</p>
+    <p>Email: emranazizi1002@gmail.com</p>
+    <p>Instagram: shahzada_official_001</p>
+    <p>LinkedIn: Emran Azizi</p>
+    <p>Status: Open ONLY for Part-Time / Student Job (Werkstudent)</p>
 </div>
 
 </section>
