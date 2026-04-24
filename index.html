@@ -11,9 +11,17 @@
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
-    background: #0a0f14;
+    background: #05070c;
     color: #eaeaea;
-    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+/* CANVAS BACKGROUND */
+#bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
 
 /* NAV */
@@ -21,7 +29,7 @@ nav {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(10,10,10,0.9);
+    background: rgba(10,10,10,0.6);
     padding: 15px;
     text-align: center;
     backdrop-filter: blur(12px);
@@ -46,7 +54,7 @@ nav a {
     height: 150px;
     border-radius: 50%;
     border: 3px solid #00f7ff;
-    box-shadow: 0 0 30px #00f7ff;
+    box-shadow: 0 0 35px #00f7ff;
 }
 
 .hero h1 {
@@ -61,7 +69,7 @@ nav a {
     line-height: 1.7;
 }
 
-/* BUTTONS */
+/* BUTTON */
 .btn {
     display: inline-block;
     margin-top: 15px;
@@ -82,15 +90,6 @@ section {
     padding: 90px 20px;
     max-width: 1000px;
     margin: auto;
-
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s ease;
-}
-
-section.show {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 h2 {
@@ -108,35 +107,18 @@ h2 {
 
 /* CARDS */
 .card {
-    background: #121a24;
+    background: rgba(18, 26, 36, 0.8);
     padding: 20px;
     border-radius: 12px;
     border: 1px solid rgba(0,255,255,0.15);
+    backdrop-filter: blur(8px);
     transition: 0.3s;
 }
 
 .card:hover {
     transform: translateY(-6px);
     border-color: #00f7ff;
-    box-shadow: 0 0 18px rgba(0,247,255,0.15);
-}
-
-/* PROJECT TITLE STYLE */
-.card h3 {
-    color: #00ff88;
-}
-
-/* GALLERY */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-}
-
-.gallery img {
-    width: 100%;
-    border-radius: 10px;
-    border: 2px solid #00f7ff;
+    box-shadow: 0 0 20px rgba(0,247,255,0.2);
 }
 
 /* MOBILE */
@@ -149,12 +131,14 @@ h2 {
 
 <body>
 
+<!-- NEON BACKGROUND -->
+<canvas id="bg"></canvas>
+
 <nav>
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
     <a href="#experience">Experience</a>
     <a href="#projects">Projects</a>
-    <a href="#gallery">Gallery</a>
     <a href="#education">Education</a>
     <a href="#contact">Contact</a>
 </nav>
@@ -162,11 +146,11 @@ h2 {
 <div class="hero" id="about">
     <img src="profile.jpg">
     <h1>Emran Azizi</h1>
-    <p>Software Engineering Student | Future Full-Stack Developer</p>
+    <p>Software Engineering Student | Full-Stack Developer</p>
 
     <p>
         I am a Software Engineering student at GISMA University of Applied Sciences in Berlin.
-        I focus on building real-world applications, improving my technical skills, and growing into a professional software engineer.
+        I focus on building real-world applications and growing as a professional developer.
     </p>
 
     <a class="btn" href="#contact">Hire Me</a>
@@ -194,38 +178,16 @@ h2 {
 <section id="projects">
 <h2>Projects</h2>
 <div class="grid">
-
-    <div class="card">
-        <h3>Portfolio Website</h3>
-        <p>Modern personal portfolio using HTML & CSS.</p>
-    </div>
-
-    <div class="card">
-        <h3>Student System</h3>
-        <p>Java-based student management system project.</p>
-    </div>
-
-    <div class="card">
-        <h3>To-Do App</h3>
-        <p>Simple task management application built in Python.</p>
-    </div>
-
-</div>
-</section>
-
-<section id="gallery">
-<h2>Gallery</h2>
-<div class="gallery">
-    <img src="photo1.jpg">
-    <img src="photo2.jpg">
-    <img src="photo3.jpg">
+    <div class="card">Portfolio Website</div>
+    <div class="card">Student System</div>
+    <div class="card">To-Do App</div>
 </div>
 </section>
 
 <section id="education">
 <h2>Education</h2>
 <div class="card">
-GISMA University of Applied Sciences — BEng Software Engineering
+GISMA University — Software Engineering
 </div>
 </section>
 
@@ -237,17 +199,50 @@ Email: emranazizi1002@gmail.com
 </section>
 
 <script>
-const sections = document.querySelectorAll("section");
+/* ===== NEON PARTICLE BACKGROUND ===== */
+const canvas = document.getElementById("bg");
+const ctx = canvas.getContext("2d");
 
-window.addEventListener("scroll", () => {
-    sections.forEach(sec => {
-        const top = window.scrollY;
-        const offset = sec.offsetTop - 500;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-        if (top > offset) {
-            sec.classList.add("show");
-        }
+let particles = [];
+
+for (let i = 0; i < 80; i++) {
+    particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 2,
+        dx: (Math.random() - 0.5) * 1,
+        dy: (Math.random() - 0.5) * 1
     });
+}
+
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = "#00f7ff";
+
+    particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+
+        p.x += p.dx;
+        p.y += p.dy;
+
+        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+    });
+
+    requestAnimationFrame(draw);
+}
+
+draw();
+
+window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 });
 </script>
 
