@@ -66,7 +66,7 @@ nav a:hover {
     color: #cfcfcf;
 }
 
-/* BUTTONS */
+/* BUTTON */
 .btn {
     display: inline-block;
     margin-top: 20px;
@@ -87,6 +87,16 @@ section {
     padding: 80px 20px;
     max-width: 1000px;
     margin: auto;
+
+    /* animation base */
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+section.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 h2 {
@@ -107,16 +117,11 @@ h2 {
     padding: 20px;
     border-radius: 12px;
     border: 1px solid rgba(0,255,255,0.15);
+    transition: 0.3s;
 }
 
 .card:hover {
     transform: translateY(-5px);
-    transition: 0.3s;
-}
-
-/* LINKS */
-a {
-    color: #00ff88;
 }
 
 /* GALLERY */
@@ -148,19 +153,17 @@ a {
 </nav>
 
 <div class="hero" id="about">
-    <img src="profile.jpg" alt="Emran Azizi">
+    <img src="profile.jpg">
 
     <h1>Emran Azizi</h1>
     <p>Software Engineering Student | Future Full-Stack Developer</p>
 
     <p>
         I am a Software Engineering student at GISMA University of Applied Sciences in Berlin.
-        I am passionate about building software, solving real-world problems, and growing into a professional full-stack developer.
-        My goal is to reach advanced academic and professional levels and contribute to technology that improves society.
+        I focus on building real-world software, improving my skills, and growing into a professional developer.
     </p>
 
     <a class="btn" href="#contact">Hire Me</a>
-    <a class="btn" href="#">Download CV</a>
 </div>
 
 <section id="skills">
@@ -185,25 +188,9 @@ a {
 <section id="projects">
 <h2>Projects</h2>
 <div class="grid">
-
-    <div class="card">
-        <h3>Portfolio Website</h3>
-        <p>Personal portfolio using HTML & CSS.</p>
-        <p><strong>Tech:</strong> HTML, CSS</p>
-    </div>
-
-    <div class="card">
-        <h3>Student System</h3>
-        <p>Java project for managing student data.</p>
-        <p><strong>Tech:</strong> Java</p>
-    </div>
-
-    <div class="card">
-        <h3>To-Do App</h3>
-        <p>Task management app for productivity.</p>
-        <p><strong>Tech:</strong> Python</p>
-    </div>
-
+    <div class="card">Portfolio Website</div>
+    <div class="card">Student System</div>
+    <div class="card">To-Do App</div>
 </div>
 </section>
 
@@ -219,7 +206,7 @@ a {
 <section id="education">
 <h2>Education</h2>
 <div class="card">
-GISMA University of Applied Sciences — BEng Software Engineering (Ongoing)
+GISMA University of Applied Sciences — BEng Software Engineering
 </div>
 </section>
 
@@ -229,6 +216,21 @@ GISMA University of Applied Sciences — BEng Software Engineering (Ongoing)
 Email: emranazizi1002@gmail.com
 </div>
 </section>
+
+<script>
+const sections = document.querySelectorAll("section");
+
+window.addEventListener("scroll", () => {
+    sections.forEach(sec => {
+        const top = window.scrollY;
+        const offset = sec.offsetTop - 500;
+
+        if (top > offset) {
+            sec.classList.add("show");
+        }
+    });
+});
+</script>
 
 </body>
 </html>
