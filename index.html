@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Emran Azizi | Software Engineer</title>
+<title>Emran Azizi | Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -16,12 +16,13 @@ body {
     overflow-x: hidden;
 }
 
-/* ===== CODE STREAM BACKGROUND ===== */
+/* BACKGROUND CANVAS */
 canvas {
     position: fixed;
     top: 0;
     left: 0;
     z-index: -2;
+    opacity: 0.7; /* softer effect */
 }
 
 /* NAV */
@@ -29,8 +30,8 @@ nav {
     position: fixed;
     top: 0;
     width: 100%;
-    backdrop-filter: blur(15px);
-    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(12px);
+    background: rgba(0,0,0,0.4);
     padding: 12px;
     text-align: center;
     z-index: 1000;
@@ -38,7 +39,7 @@ nav {
 
 nav a {
     color: #00f7ff;
-    margin: 0 12px;
+    margin: 0 14px;
     text-decoration: none;
     font-weight: 600;
 }
@@ -50,19 +51,21 @@ nav a {
 }
 
 .hero img {
-    width: 150px;
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
-    border: 3px solid #00f7ff;
-    box-shadow: 0 0 40px #00f7ff;
+    border: 2px solid #00f7ff;
+    box-shadow: 0 0 25px rgba(0,247,255,0.4);
 }
 
 .hero h1 {
-    font-size: 52px;
+    font-size: 48px;
     color: #00f7ff;
+    margin-bottom: 10px;
 }
 
 .hero p {
-    max-width: 850px;
+    max-width: 800px;
     margin: auto;
     color: #cfd8dc;
     line-height: 1.7;
@@ -71,34 +74,31 @@ nav a {
 /* BADGE */
 .badge {
     display: inline-block;
-    padding: 8px 14px;
+    padding: 6px 14px;
     background: #00ff88;
     color: black;
     border-radius: 20px;
     font-weight: bold;
     margin-top: 10px;
-}
-
-/* LINKS */
-a {
-    color: #00ff88;
+    font-size: 13px;
 }
 
 /* BUTTON */
 .btn {
     display: inline-block;
     margin: 10px;
-    padding: 12px 18px;
+    padding: 10px 16px;
     background: #00f7ff;
     color: black;
-    border-radius: 10px;
+    border-radius: 8px;
     text-decoration: none;
+    font-weight: 600;
 }
 
 /* SECTIONS */
 section {
-    padding: 80px 20px;
-    max-width: 1100px;
+    padding: 70px 20px;
+    max-width: 1000px;
     margin: auto;
 }
 
@@ -106,35 +106,48 @@ h2 {
     color: #00f7ff;
     border-left: 4px solid #00ff88;
     padding-left: 12px;
+    margin-bottom: 20px;
 }
 
 /* GRID */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
 }
 
-/* CARD */
+/* CARD (clean + glass style) */
 .card {
     background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(0,247,255,0.2);
-    padding: 20px;
-    border-radius: 15px;
+    border: 1px solid rgba(0,247,255,0.15);
+    padding: 18px;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #00f7ff;
+    box-shadow: 0 0 18px rgba(0,247,255,0.2);
 }
 
 /* GALLERY */
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 10px;
 }
 
 .gallery img {
     width: 100%;
-    height: 150px;
+    height: 140px;
     object-fit: cover;
     border-radius: 10px;
+    transition: 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
 }
 </style>
 </head>
@@ -159,63 +172,50 @@ h2 {
 
     <h1>Emran Azizi</h1>
 
-    <p style="color:#00f7ff; font-weight:600;">
-        Software Engineering Student | Future Full-Stack Developer | AI Enthusiast
-    </p>
-
     <div class="badge">
-        OPEN TO PART-TIME / STUDENT JOB (WERKSTUDENT ONLY)
+        OPEN TO PART-TIME / STUDENT JOB (WERKSTUDENT)
     </div>
 
     <p>
-        I am 25 years old from Afghanistan, currently living in Berlin.
-        I am studying Software Engineering at GISMA University of Applied Sciences (2nd semester).
+        Software Engineering student in Berlin at GISMA University of Applied Sciences.
+        Passionate about AI, full-stack development, and building real-world software systems.
+        Goal: Become a professional software engineer and grow toward PhD level studies.
     </p>
 
-    <p>
-        I am an ethical, open-minded and disciplined person with strong passion for technology, AI systems,
-        and modern software development.
-    </p>
-
-    <p>
-        My goal is to become a professional full-stack developer and continue my education up to PhD level.
-        I enjoy problem solving, coding, and building real-world applications.
-    </p>
-
-    <a class="btn" href="#contact">Contact Me</a>
+    <a class="btn" href="#contact">Contact</a>
 
 </div>
 
 <!-- SKILLS -->
-<section id="skills">
+<section>
 <h2>Skills</h2>
 <div class="grid">
     <div class="card">Python (Beginner)</div>
     <div class="card">HTML & CSS</div>
     <div class="card">Git & GitHub</div>
-    <div class="card">AI Tools in Development</div>
+    <div class="card">AI Tools</div>
 </div>
 
 <h2>Languages</h2>
 <div class="grid">
-    <div class="card">Dari (Native)</div>
-    <div class="card">English (Good)</div>
+    <div class="card">Dari</div>
+    <div class="card">English</div>
     <div class="card">German (Basic)</div>
 </div>
 </section>
 
 <!-- EXPERIENCE -->
-<section id="experience">
+<section>
 <h2>Experience</h2>
 <div class="grid">
     <div class="card">Computer Lab Assistant</div>
     <div class="card">Restaurant Worker</div>
-    <div class="card">Logistics Warehouse Worker</div>
+    <div class="card">Warehouse Worker</div>
 </div>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects">
+<section>
 <h2>Projects</h2>
 <div class="grid">
     <div class="card">Portfolio Website</div>
@@ -224,14 +224,13 @@ h2 {
 </div>
 </section>
 
-<!-- HOBBIES -->
-<section id="gallery">
+<!-- HOBBIES + GALLERY -->
+<section>
 <h2>Hobbies</h2>
 <div class="grid">
     <div class="card">Gaming</div>
     <div class="card">Cooking</div>
     <div class="card">Movies</div>
-    <div class="card">Swimming</div>
     <div class="card">Gym</div>
 </div>
 
@@ -247,53 +246,36 @@ h2 {
 </section>
 
 <!-- CONTACT -->
-<section id="contact">
+<section>
 <h2>Contact</h2>
 
 <div class="card">
+Email: emranazizi1002@gmail.com <br><br>
 
-<p>Email:
-<a href="mailto:emranazizi1002@gmail.com">emranazizi1002@gmail.com</a>
-</p>
+Instagram: shahzada_official_001 <br>
+LinkedIn: Emran Azizi <br><br>
 
-<p>Instagram:
-<a href="https://www.instagram.com/shahzada_official_001" target="_blank">
-Open Instagram
-</a>
-</p>
-
-<p>LinkedIn:
-<a href="https://www.linkedin.com/in/emran-azizi-5b2409403" target="_blank">
-Open LinkedIn
-</a>
-</p>
-
-<p>Status: Open ONLY for Part-Time / Student Job (Werkstudent)</p>
-
+Status: Open ONLY for Part-Time / Student Job (Werkstudent)
 </div>
+
 </section>
 
 <script>
-// ===== CODE STREAM BACKGROUND =====
+// ===== SOFT CODE BACKGROUND (REDUCED INTENSITY) =====
 const canvas = document.getElementById("code");
 const ctx = canvas.getContext("2d");
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-let letters = "010101001011001011010101JAVA PYTHON HTML CSS AI DATA SQL GIT".split("");
-
-let fontSize = 14;
+let letters = "01 DATA AI CODE SQL PY JS HTML".split("");
+let fontSize = 13;
 let columns = canvas.width / fontSize;
 
-let drops = [];
-
-for(let x=0;x<columns;x++){
-    drops[x] = 1;
-}
+let drops = Array(Math.floor(columns)).fill(1);
 
 function draw(){
-    ctx.fillStyle = "rgba(0,0,0,0.05)";
+    ctx.fillStyle = "rgba(0,0,0,0.08)";
     ctx.fillRect(0,0,canvas.width,canvas.height);
 
     ctx.fillStyle = "#00f7ff";
@@ -303,7 +285,7 @@ function draw(){
         let text = letters[Math.floor(Math.random()*letters.length)];
         ctx.fillText(text, i*fontSize, drops[i]*fontSize);
 
-        if(drops[i]*fontSize > canvas.height && Math.random() > 0.975){
+        if(drops[i]*fontSize > canvas.height && Math.random() > 0.98){
             drops[i]=0;
         }
 
@@ -311,7 +293,7 @@ function draw(){
     }
 }
 
-setInterval(draw, 35);
+setInterval(draw, 50);
 </script>
 
 </body>
