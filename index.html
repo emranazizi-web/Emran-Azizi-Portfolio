@@ -3,43 +3,47 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Emran Azizi | 3D Portfolio</title>
+<title>Emran Azizi | Software Engineer</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-body {
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     font-family: 'Inter', sans-serif;
-    color: white;
     background: #05070f;
+    color: white;
     overflow-x: hidden;
 }
 
-/* ===== 3D ANIMATED BACKGROUND ===== */
+/* ===== BACKGROUND ===== */
 .bg {
     position: fixed;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at top, #0a1a2f, #05070f);
+    background: radial-gradient(circle at top, #0b1b2e, #05070f);
     z-index: -3;
 }
 
 /* FLOATING PARTICLES */
 .particle {
     position: absolute;
-    width: 6px;
-    height: 6px;
+    width: 5px;
+    height: 5px;
     background: #00f7ff;
     border-radius: 50%;
-    opacity: 0.5;
-    animation: float 10s infinite linear;
+    opacity: 0.4;
+    animation: floatUp linear infinite;
 }
 
-@keyframes float {
-    0% { transform: translateY(0); opacity: 0.2; }
-    50% { opacity: 1; }
-    100% { transform: translateY(-1000px); opacity: 0; }
+@keyframes floatUp {
+    from { transform: translateY(100vh); opacity: 0; }
+    to { transform: translateY(-10vh); opacity: 1; }
 }
 
 /* NAV */
@@ -47,10 +51,10 @@ nav {
     position: fixed;
     top: 0;
     width: 100%;
-    backdrop-filter: blur(15px);
-    background: rgba(0,0,0,0.4);
     padding: 12px;
     text-align: center;
+    backdrop-filter: blur(12px);
+    background: rgba(0,0,0,0.4);
     z-index: 1000;
 }
 
@@ -73,21 +77,22 @@ nav a {
     border-radius: 50%;
     border: 3px solid #00f7ff;
     box-shadow: 0 0 40px #00f7ff;
-    transition: transform 0.5s;
+    transition: transform 0.3s;
 }
 
 .hero img:hover {
-    transform: rotateY(20deg) scale(1.05);
+    transform: rotateY(15deg) scale(1.05);
 }
 
 .hero h1 {
-    font-size: 55px;
+    font-size: 50px;
     color: #00f7ff;
+    margin-top: 15px;
 }
 
 .hero p {
     max-width: 800px;
-    margin: auto;
+    margin: 10px auto;
     color: #cfd8dc;
     line-height: 1.6;
 }
@@ -103,7 +108,7 @@ nav a {
     font-weight: bold;
 }
 
-/* BUTTONS */
+/* BUTTON */
 .btn {
     display: inline-block;
     margin: 10px;
@@ -116,13 +121,13 @@ nav a {
 }
 
 .btn:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     background: #00ff88;
 }
 
 /* SECTIONS */
 section {
-    padding: 80px 20px;
+    padding: 70px 20px;
     max-width: 1100px;
     margin: auto;
 }
@@ -131,49 +136,53 @@ h2 {
     color: #00f7ff;
     border-left: 4px solid #00ff88;
     padding-left: 12px;
+    margin-bottom: 20px;
 }
 
-/* 3D CARDS */
+/* GRID */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 20px;
 }
 
+/* CARDS */
 .card {
     background: rgba(255,255,255,0.05);
     border: 1px solid rgba(0,247,255,0.2);
-    padding: 20px;
     border-radius: 15px;
+    padding: 20px;
     backdrop-filter: blur(10px);
     transition: 0.4s;
-    transform-style: preserve-3d;
 }
 
 .card:hover {
-    transform: rotateY(10deg) translateY(-10px);
-    box-shadow: 0 0 25px #00f7ff;
+    transform: translateY(-8px) rotateX(5deg);
+    border-color: #00f7ff;
 }
 
 /* GALLERY */
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 10px;
 }
 
 .gallery img {
     width: 100%;
-    height: 160px;
+    height: 150px;
     object-fit: cover;
     border-radius: 10px;
     border: 1px solid #00f7ff;
-    transition: 0.4s;
+    transition: 0.3s;
 }
 
 .gallery img:hover {
     transform: scale(1.08);
 }
+
+/* LINKS */
+a { color: #00ff88; }
 
 /* MOBILE */
 @media (max-width: 600px) {
@@ -186,7 +195,6 @@ h2 {
 
 <div class="bg"></div>
 
-<!-- NAV -->
 <nav>
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
@@ -204,7 +212,7 @@ h2 {
     <h1>Emran Azizi</h1>
 
     <p style="color:#00f7ff; font-weight:600;">
-        Software Engineering Student | Full-Stack Developer
+        Software Engineering Student | Full-Stack Developer | AI Enthusiast
     </p>
 
     <div class="badge">
@@ -212,14 +220,21 @@ h2 {
     </div>
 
     <p>
-        I am 25 years old from Afghanistan, currently living in Berlin.
-        I study Software Engineering at GISMA University of Applied Sciences (2nd semester).
-        I am passionate about AI, software development, and building real-world systems.
-        My goal is to become a professional full-stack developer and continue up to PhD level.
+        I am a Software Engineering student at GISMA University of Applied Sciences in Berlin,
+        currently in my second semester. I am originally from Afghanistan and currently living in Germany.
     </p>
 
-    <a class="btn" href="#projects">Projects</a>
-    <a class="btn" href="#contact">Contact</a>
+    <p>
+        I am passionate about AI, modern software systems, and full-stack development.
+        My goal is to become a highly skilled software engineer and continue my academic journey up to PhD level.
+    </p>
+
+    <p>
+        I am an ethical, open-minded, and motivated individual who values discipline, learning, and contributing to society.
+    </p>
+
+    <a class="btn" href="#projects">View Projects</a>
+    <a class="btn" href="#contact">Contact Me</a>
 
 </div>
 
@@ -230,7 +245,14 @@ h2 {
     <div class="card">Python (Beginner)</div>
     <div class="card">HTML & CSS</div>
     <div class="card">Git & GitHub</div>
-    <div class="card">AI Tools for Coding</div>
+    <div class="card">AI Tools for Development</div>
+</div>
+
+<h2>Languages</h2>
+<div class="grid">
+    <div class="card">Dari (Native)</div>
+    <div class="card">English (Good)</div>
+    <div class="card">German (Basic)</div>
 </div>
 </section>
 
@@ -249,20 +271,8 @@ h2 {
 <h2>Projects</h2>
 <div class="grid">
     <div class="card">Portfolio Website</div>
-    <div class="card">Student System</div>
+    <div class="card">Student Management System</div>
     <div class="card">To-Do App</div>
-</div>
-</section>
-
-<!-- HOBBIES -->
-<section id="hobbies">
-<h2>Hobbies</h2>
-<div class="grid">
-    <div class="card">Gaming</div>
-    <div class="card">Cooking</div>
-    <div class="card">Movies</div>
-    <div class="card">Swimming</div>
-    <div class="card">Gym</div>
 </div>
 </section>
 
@@ -284,9 +294,20 @@ h2 {
 <h2>Contact</h2>
 
 <div class="card">
-    <p>Email: emranazizi1002@gmail.com</p>
-    <p>Instagram: shahzada_official_001</p>
-    <p>LinkedIn: Emran Azizi</p>
+    <p>Email: <a href="mailto:emranazizi1002@gmail.com">emranazizi1002@gmail.com</a></p>
+
+    <p>Instagram: 
+        <a href="https://www.instagram.com/shahzada_official_001" target="_blank">
+            Open Instagram
+        </a>
+    </p>
+
+    <p>LinkedIn: 
+        <a href="https://www.linkedin.com/in/emran-azizi-5b2409403" target="_blank">
+            Open LinkedIn
+        </a>
+    </p>
+
     <p>Status: Open ONLY for Part-Time / Student Job (Werkstudent)</p>
 </div>
 
