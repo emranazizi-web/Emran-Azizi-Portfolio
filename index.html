@@ -61,6 +61,18 @@ nav a {
     line-height: 1.7;
 }
 
+/* BADGE */
+.badge {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #00ff88;
+    color: black;
+    font-weight: bold;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
 /* BUTTONS */
 .btn {
     display: inline-block;
@@ -111,10 +123,8 @@ h2 {
     border-color: #00f7ff;
 }
 
-/* PROJECT LINK */
-.card a {
-    display: inline-block;
-    margin-top: 10px;
+/* LINKS */
+a {
     color: #00ff88;
     text-decoration: none;
 }
@@ -130,11 +140,6 @@ h2 {
     width: 100%;
     border-radius: 10px;
     border: 2px solid #00f7ff;
-}
-
-/* MOBILE */
-@media (max-width: 600px) {
-    .hero h1 { font-size: 32px; }
 }
 </style>
 
@@ -152,21 +157,26 @@ h2 {
     <a href="#contact">Contact</a>
 </nav>
 
+<!-- HERO -->
 <div class="hero" id="about">
     <img src="profile.jpg">
 
     <h1>Emran Azizi</h1>
     <p>Software Engineering Student | Future Full-Stack Developer</p>
 
+    <div class="badge">Open to Internships</div>
+
     <p>
         I am a Software Engineering student at GISMA University of Applied Sciences in Berlin.
-        I am focused on becoming a professional full-stack developer and building real-world software systems.
+        I am passionate about software development, problem-solving, and building real-world applications.
+        My goal is to become a professional full-stack developer and contribute to meaningful technology projects.
     </p>
 
     <a class="btn" href="#contact">Hire Me</a>
     <a class="btn" href="cv.pdf" download>Download CV</a>
 </div>
 
+<!-- SKILLS -->
 <section id="skills">
 <h2>Skills</h2>
 <div class="grid">
@@ -177,6 +187,7 @@ h2 {
 </div>
 </section>
 
+<!-- EXPERIENCE -->
 <section id="experience">
 <h2>Experience</h2>
 <div class="grid">
@@ -186,31 +197,33 @@ h2 {
 </div>
 </section>
 
+<!-- PROJECTS -->
 <section id="projects">
 <h2>Projects</h2>
 <div class="grid">
 
     <div class="card">
         <h3>Portfolio Website</h3>
-        <p>HTML/CSS personal portfolio.</p>
-        <a href="https://github.com/">View on GitHub</a>
+        <p>Personal developer portfolio built using HTML & CSS.</p>
+        <a href="https://github.com/">View Project</a>
     </div>
 
     <div class="card">
-        <h3>Student System</h3>
-        <p>Java-based management system.</p>
-        <a href="https://github.com/">View on GitHub</a>
+        <h3>Student Management System</h3>
+        <p>Java project for managing student records and data.</p>
+        <a href="https://github.com/">View Project</a>
     </div>
 
     <div class="card">
         <h3>To-Do App</h3>
-        <p>Productivity application in Python.</p>
-        <a href="https://github.com/">View on GitHub</a>
+        <p>Simple productivity app built with Python.</p>
+        <a href="https://github.com/">View Project</a>
     </div>
 
 </div>
 </section>
 
+<!-- GALLERY -->
 <section id="gallery">
 <h2>Gallery</h2>
 <div class="gallery">
@@ -220,17 +233,21 @@ h2 {
 </div>
 </section>
 
+<!-- EDUCATION -->
 <section id="education">
 <h2>Education</h2>
 <div class="card">
-GISMA University of Applied Sciences — BEng Software Engineering
+GISMA University of Applied Sciences — BEng Software Engineering (Ongoing)
 </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact">
 <h2>Contact</h2>
 <div class="card">
-Email: emranazizi1002@gmail.com
+<p>Email: <a href="mailto:emranazizi1002@gmail.com">emranazizi1002@gmail.com</a></p>
+<p>Location: Berlin, Germany</p>
+<p>Available for internships and junior developer roles</p>
 </div>
 </section>
 
