@@ -60,8 +60,8 @@ nav a {
 .hero h1 {
     color: #00f7ff;
     font-size: 46px;
-    letter-spacing: 1px;
     margin-top: 20px;
+    letter-spacing: 1px;
 }
 
 .hero p {
@@ -181,22 +181,24 @@ a {
     <h1>Emran Azizi</h1>
 
     <p style="color:#00f7ff; font-weight:600;">
-        Software Engineering Student | Full-Stack Developer | Open to Full-Time Roles
+        Software Engineering Student | Full-Stack Developer | Open to Work
     </p>
 
-    <div class="badge">Actively Seeking Full-Time Software Engineer Role</div>
+    <div class="badge">
+        Open to Full-Time, Part-Time & Student (Werkstudent) Roles
+    </div>
 
     <p>
         I am a Software Engineering student at GISMA University of Applied Sciences in Berlin.
-        I focus on building scalable, clean, and real-world software applications.
-        I enjoy solving problems and continuously improving my skills in modern development.
+        I focus on building real-world applications, improving my full-stack development skills,
+        and gaining practical experience through projects and industry opportunities.
     </p>
 
     <a class="btn" href="#projects">View Projects</a>
     <a class="btn" href="#contact">Contact Me</a>
 </div>
 
-<!-- SKILLS (JAVA REMOVED) -->
+<!-- SKILLS -->
 <section id="skills">
 <h2>Skills</h2>
 <div class="grid">
@@ -219,24 +221,25 @@ a {
 <!-- PROJECTS -->
 <section id="projects">
 <h2>Selected Projects</h2>
+
 <div class="grid">
 
     <div class="card">
         <h3>Portfolio Website</h3>
-        <p>Modern responsive portfolio built using HTML, CSS, and JavaScript.</p>
-        <p><strong>Stack:</strong> Frontend Development</p>
+        <p>Modern responsive portfolio built with HTML, CSS, and JavaScript.</p>
+        <p><strong>Focus:</strong> UI Design</p>
     </div>
 
     <div class="card">
         <h3>Student Management System</h3>
-        <p>System for managing student data with structured programming logic.</p>
-        <p><strong>Stack:</strong> OOP Concepts</p>
+        <p>System for managing student data using structured programming.</p>
+        <p><strong>Focus:</strong> Logic & OOP</p>
     </div>
 
     <div class="card">
-        <h3>To-Do Application</h3>
-        <p>Simple task management tool for productivity improvement.</p>
-        <p><strong>Stack:</strong> Python</p>
+        <h3>To-Do App</h3>
+        <p>Task management application for productivity improvement.</p>
+        <p><strong>Focus:</strong> Python Logic</p>
     </div>
 
 </div>
@@ -269,11 +272,11 @@ GISMA University of Applied Sciences — BEng Software Engineering (Ongoing)
         </a>
     </p>
 
-    <p>Status: Open to Full-Time Software Engineering Roles</p>
+    <p>Status: Open to Full-Time, Part-Time, and Student (Werkstudent) Software Roles</p>
 </div>
 </section>
 
-<!-- NEON BACKGROUND SCRIPT -->
+<!-- NEON BACKGROUND -->
 <script>
 const canvas = document.getElementById("bg");
 const ctx = canvas.getContext("2d");
@@ -295,7 +298,6 @@ for (let i = 0; i < 80; i++) {
 
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
     ctx.fillStyle = "#00f7ff";
 
     particles.forEach(p => {
