@@ -16,6 +16,14 @@ body {
     overflow-x: hidden;
 }
 
+/* BACKGROUND CANVAS */
+#bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
 /* NAV */
 nav {
     position: fixed;
@@ -46,12 +54,13 @@ nav a {
     height: 150px;
     border-radius: 50%;
     border: 3px solid #00f7ff;
-    box-shadow: 0 0 35px #00f7ff;
+    box-shadow: 0 0 40px #00f7ff;
 }
 
 .hero h1 {
     color: #00f7ff;
-    font-size: 44px;
+    font-size: 46px;
+    margin-top: 20px;
 }
 
 .hero p {
@@ -59,6 +68,18 @@ nav a {
     margin: auto;
     color: #cfcfcf;
     line-height: 1.7;
+}
+
+/* STATUS BADGE */
+.badge {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 14px;
+    border-radius: 20px;
+    background: #00ff88;
+    color: black;
+    font-weight: bold;
+    font-size: 13px;
 }
 
 /* BUTTON */
@@ -129,6 +150,9 @@ a {
 
 <body>
 
+<!-- NEON BACKGROUND -->
+<canvas id="bg"></canvas>
+
 <nav>
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
@@ -143,11 +167,15 @@ a {
     <img src="profile.jpg">
 
     <h1>Emran Azizi</h1>
-    <p>Software Engineering Student | Future Full-Stack Developer</p>
+
+    <p>Software Engineering Student | Full-Stack Developer | Open to Job Opportunities</p>
+
+    <div class="badge">Open to Full-Time Software Engineer Roles</div>
 
     <p>
         I am a Software Engineering student at GISMA University of Applied Sciences in Berlin.
-        I am focused on becoming a professional full-stack developer and building real-world software systems.
+        I am passionate about building real-world applications, solving problems, and growing as a professional software engineer.
+        My goal is to contribute to impactful technology and continuously improve my skills.
     </p>
 
     <a class="btn" href="#contact">Hire Me</a>
@@ -181,20 +209,17 @@ a {
 
     <div class="card">
         <h3>Portfolio Website</h3>
-        <p>HTML/CSS personal portfolio.</p>
-        <a href="https://github.com/">View on GitHub</a>
+        <p>Personal developer portfolio using HTML & CSS.</p>
     </div>
 
     <div class="card">
-        <h3>Student System</h3>
-        <p>Java-based management system.</p>
-        <a href="https://github.com/">View on GitHub</a>
+        <h3>Student Management System</h3>
+        <p>Java-based project for managing student data.</p>
     </div>
 
     <div class="card">
         <h3>To-Do App</h3>
-        <p>Python productivity app.</p>
-        <a href="https://github.com/">View on GitHub</a>
+        <p>Python-based task management application.</p>
     </div>
 
 </div>
@@ -227,8 +252,57 @@ GISMA University of Applied Sciences — BEng Software Engineering
     </p>
 
     <p>Location: Berlin, Germany</p>
+    <p>Open to full-time software engineering roles</p>
 </div>
 </section>
+
+<script>
+/* NEON PARTICLES BACKGROUND */
+const canvas = document.getElementById("bg");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+for (let i = 0; i < 80; i++) {
+    particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 2,
+        dx: (Math.random() - 0.5) * 1,
+        dy: (Math.random() - 0.5) * 1
+    });
+}
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = "#00f7ff";
+
+    particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+
+        p.x += p.dx;
+        p.y += p.dy;
+
+        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+    });
+
+    requestAnimationFrame(animate);
+}
+
+animate();
+
+window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
+</script>
 
 </body>
 </html>
