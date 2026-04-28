@@ -16,16 +16,14 @@ body {
     overflow-x: hidden;
 }
 
-/* BACKGROUND CANVAS */
 canvas {
     position: fixed;
     top: 0;
     left: 0;
     z-index: -2;
-    opacity: 0.7; /* softer effect */
+    opacity: 0.7;
 }
 
-/* NAV */
 nav {
     position: fixed;
     top: 0;
@@ -44,7 +42,6 @@ nav a {
     font-weight: 600;
 }
 
-/* HERO */
 .hero {
     text-align: center;
     padding: 140px 20px 60px;
@@ -61,7 +58,6 @@ nav a {
 .hero h1 {
     font-size: 48px;
     color: #00f7ff;
-    margin-bottom: 10px;
 }
 
 .hero p {
@@ -71,7 +67,6 @@ nav a {
     line-height: 1.7;
 }
 
-/* BADGE */
 .badge {
     display: inline-block;
     padding: 6px 14px;
@@ -83,7 +78,6 @@ nav a {
     font-size: 13px;
 }
 
-/* BUTTON */
 .btn {
     display: inline-block;
     margin: 10px;
@@ -95,7 +89,6 @@ nav a {
     font-weight: 600;
 }
 
-/* SECTIONS */
 section {
     padding: 70px 20px;
     max-width: 1000px;
@@ -106,32 +99,21 @@ h2 {
     color: #00f7ff;
     border-left: 4px solid #00ff88;
     padding-left: 12px;
-    margin-bottom: 20px;
 }
 
-/* GRID */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 16px;
 }
 
-/* CARD (clean + glass style) */
 .card {
     background: rgba(255,255,255,0.05);
     border: 1px solid rgba(0,247,255,0.15);
     padding: 18px;
     border-radius: 12px;
-    transition: 0.3s;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    border-color: #00f7ff;
-    box-shadow: 0 0 18px rgba(0,247,255,0.2);
-}
-
-/* GALLERY */
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -143,11 +125,6 @@ h2 {
     height: 140px;
     object-fit: cover;
     border-radius: 10px;
-    transition: 0.3s;
-}
-
-.gallery img:hover {
-    transform: scale(1.05);
 }
 </style>
 </head>
@@ -177,17 +154,26 @@ h2 {
     </div>
 
     <p>
-        Software Engineering student in Berlin at GISMA University of Applied Sciences.
-        Passionate about AI, full-stack development, and building real-world software systems.
-        Goal: Become a professional software engineer and grow toward PhD level studies.
+        I am a Software Engineering student at GISMA University of Applied Sciences in Berlin, currently in my second semester.
+        I am an open-minded and ethical individual with a strong passion for technology, AI, and software development.
     </p>
 
+    <p>
+        My goal is to become a skilled full-stack developer and continue my academic journey up to PhD level.
+        I enjoy solving real-world problems, building applications, and continuously improving my skills.
+    </p>
+
+    <!-- BUTTONS -->
     <a class="btn" href="#contact">Contact</a>
+
+    <!-- OPTIONAL CV BUTTON -->
+    <!-- Put cv.pdf in same folder -->
+    <a class="btn" href="cv.pdf" target="_blank">View CV</a>
 
 </div>
 
 <!-- SKILLS -->
-<section>
+<section id="skills">
 <h2>Skills</h2>
 <div class="grid">
     <div class="card">Python (Beginner)</div>
@@ -198,14 +184,14 @@ h2 {
 
 <h2>Languages</h2>
 <div class="grid">
-    <div class="card">Dari</div>
+    <div class="card">Dari (Native)</div>
     <div class="card">English</div>
     <div class="card">German (Basic)</div>
 </div>
 </section>
 
 <!-- EXPERIENCE -->
-<section>
+<section id="experience">
 <h2>Experience</h2>
 <div class="grid">
     <div class="card">Computer Lab Assistant</div>
@@ -215,7 +201,7 @@ h2 {
 </section>
 
 <!-- PROJECTS -->
-<section>
+<section id="projects">
 <h2>Projects</h2>
 <div class="grid">
     <div class="card">Portfolio Website</div>
@@ -225,12 +211,13 @@ h2 {
 </section>
 
 <!-- HOBBIES + GALLERY -->
-<section>
+<section id="gallery">
 <h2>Hobbies</h2>
 <div class="grid">
     <div class="card">Gaming</div>
     <div class="card">Cooking</div>
     <div class="card">Movies</div>
+    <div class="card">Swimming</div>
     <div class="card">Gym</div>
 </div>
 
@@ -246,32 +233,45 @@ h2 {
 </section>
 
 <!-- CONTACT -->
-<section>
+<section id="contact">
 <h2>Contact</h2>
 
 <div class="card">
-Email: emranazizi1002@gmail.com <br><br>
 
-Instagram: shahzada_official_001 <br>
-LinkedIn: Emran Azizi <br><br>
+<p>Email:
+<a href="mailto:emranazizi1002@gmail.com">
+emranazizi1002@gmail.com
+</a>
+</p>
 
-Status: Open ONLY for Part-Time / Student Job (Werkstudent)
+<p>Instagram:
+<a href="https://www.instagram.com/shahzada_official_001" target="_blank">
+Open Instagram Profile
+</a>
+</p>
+
+<p>LinkedIn:
+<a href="https://www.linkedin.com/in/emran-azizi-5b2409403" target="_blank">
+Open LinkedIn Profile
+</a>
+</p>
+
+<p>Status: Open ONLY for Part-Time / Student Job (Werkstudent)</p>
+
 </div>
 
 </section>
 
 <script>
-// ===== SOFT CODE BACKGROUND (REDUCED INTENSITY) =====
 const canvas = document.getElementById("code");
 const ctx = canvas.getContext("2d");
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-let letters = "01 DATA AI CODE SQL PY JS HTML".split("");
+let letters = "01 DATA AI CODE".split("");
 let fontSize = 13;
 let columns = canvas.width / fontSize;
-
 let drops = Array(Math.floor(columns)).fill(1);
 
 function draw(){
