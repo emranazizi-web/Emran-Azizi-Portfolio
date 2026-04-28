@@ -11,25 +11,40 @@
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
-    background: #05070f;
+    background: #04060d;
     color: white;
     overflow-x: hidden;
 }
 
+/* CURSOR GLOW */
+.cursor {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: fixed;
+    background: rgba(0,255,255,0.6);
+    pointer-events: none;
+    mix-blend-mode: screen;
+    z-index: 9999;
+    transition: transform 0.1s;
+}
+
+/* BACKGROUND */
 canvas {
     position: fixed;
     top: 0;
     left: 0;
     z-index: -2;
-    opacity: 0.7;
+    opacity: 0.5;
 }
 
+/* NAV */
 nav {
     position: fixed;
     top: 0;
     width: 100%;
-    backdrop-filter: blur(12px);
-    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(15px);
+    background: rgba(0,0,0,0.35);
     padding: 12px;
     text-align: center;
     z-index: 1000;
@@ -42,55 +57,61 @@ nav a {
     font-weight: 600;
 }
 
+/* HERO */
 .hero {
     text-align: center;
-    padding: 140px 20px 60px;
+    padding: 160px 20px 80px;
 }
 
 .hero img {
     width: 140px;
-    height: 140px;
     border-radius: 50%;
     border: 2px solid #00f7ff;
-    box-shadow: 0 0 25px rgba(0,247,255,0.4);
+    box-shadow: 0 0 30px #00f7ff;
 }
 
 .hero h1 {
-    font-size: 48px;
+    font-size: 52px;
     color: #00f7ff;
 }
 
-.hero p {
-    max-width: 800px;
-    margin: auto;
-    color: #cfd8dc;
-    line-height: 1.7;
+.typing {
+    font-size: 18px;
+    color: #00ff88;
+    margin-top: 10px;
 }
 
+/* BADGE */
 .badge {
-    display: inline-block;
+    margin-top: 10px;
     padding: 6px 14px;
     background: #00ff88;
     color: black;
     border-radius: 20px;
+    display: inline-block;
     font-weight: bold;
-    margin-top: 10px;
-    font-size: 13px;
 }
 
+/* BUTTON */
 .btn {
     display: inline-block;
-    margin: 10px;
-    padding: 10px 16px;
+    margin: 12px;
+    padding: 12px 18px;
     background: #00f7ff;
     color: black;
-    border-radius: 8px;
+    border-radius: 10px;
     text-decoration: none;
-    font-weight: 600;
+    transition: 0.3s;
 }
 
+.btn:hover {
+    background: #00ff88;
+    box-shadow: 0 0 15px #00ff88;
+}
+
+/* SECTION */
 section {
-    padding: 70px 20px;
+    padding: 80px 20px;
     max-width: 1000px;
     margin: auto;
 }
@@ -101,19 +122,28 @@ h2 {
     padding-left: 12px;
 }
 
+/* GRID */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 16px;
+    gap: 18px;
 }
 
+/* CARD */
 .card {
     background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(0,247,255,0.15);
-    padding: 18px;
+    padding: 20px;
     border-radius: 12px;
+    border: 1px solid rgba(0,255,255,0.2);
+    transition: 0.3s;
 }
 
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 20px rgba(0,255,255,0.3);
+}
+
+/* GALLERY */
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -122,8 +152,6 @@ h2 {
 
 .gallery img {
     width: 100%;
-    height: 140px;
-    object-fit: cover;
     border-radius: 10px;
 }
 </style>
@@ -131,169 +159,121 @@ h2 {
 
 <body>
 
-<canvas id="code"></canvas>
+<div class="cursor" id="cursor"></div>
+<canvas id="bg"></canvas>
 
 <nav>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#experience">Experience</a>
-    <a href="#projects">Projects</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#contact">Contact</a>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
 </nav>
 
-<!-- HERO -->
 <div class="hero" id="about">
+<img src="profile.jpg">
 
-    <img src="profile.jpg">
+<h1>Emran Azizi</h1>
 
-    <h1>Emran Azizi</h1>
+<div class="typing" id="typing"></div>
 
-    <div class="badge">
-        OPEN TO PART-TIME / STUDENT JOB (WERKSTUDENT)
-    </div>
+<div class="badge">Open to Part-Time / Student Job</div>
 
-    <p>
-        I am a Software Engineering student at GISMA University of Applied Sciences in Berlin, currently in my second semester.
-        I am an open-minded and ethical individual with a strong passion for technology, AI, and software development.
-    </p>
+<p>
+Software Engineering student in Berlin focused on full-stack development and AI.
+Goal: Become a professional developer and continue to PhD level.
+</p>
 
-    <p>
-        My goal is to become a skilled full-stack developer and continue my academic journey up to PhD level.
-        I enjoy solving real-world problems, building applications, and continuously improving my skills.
-    </p>
-
-    <!-- BUTTONS -->
-    <a class="btn" href="#contact">Contact</a>
-
-    <!-- OPTIONAL CV BUTTON -->
-    <!-- Put cv.pdf in same folder -->
-    <a class="btn" href="cv.pdf" target="_blank">View CV</a>
-
+<a class="btn" href="cv.pdf" target="_blank">View CV</a>
+<a class="btn" href="#contact">Contact</a>
 </div>
 
-<!-- SKILLS -->
 <section id="skills">
 <h2>Skills</h2>
 <div class="grid">
-    <div class="card">Python (Beginner)</div>
-    <div class="card">HTML & CSS</div>
-    <div class="card">Git & GitHub</div>
-    <div class="card">AI Tools</div>
-</div>
-
-<h2>Languages</h2>
-<div class="grid">
-    <div class="card">Dari (Native)</div>
-    <div class="card">English</div>
-    <div class="card">German (Basic)</div>
+<div class="card">Python</div>
+<div class="card">HTML & CSS</div>
+<div class="card">GitHub</div>
+<div class="card">AI Tools</div>
 </div>
 </section>
 
-<!-- EXPERIENCE -->
-<section id="experience">
-<h2>Experience</h2>
-<div class="grid">
-    <div class="card">Computer Lab Assistant</div>
-    <div class="card">Restaurant Worker</div>
-    <div class="card">Warehouse Worker</div>
-</div>
-</section>
-
-<!-- PROJECTS -->
 <section id="projects">
 <h2>Projects</h2>
 <div class="grid">
-    <div class="card">Portfolio Website</div>
-    <div class="card">Student System</div>
-    <div class="card">To-Do App</div>
+<div class="card">Portfolio Website</div>
+<div class="card">Student System</div>
+<div class="card">To-Do App</div>
 </div>
 </section>
 
-<!-- HOBBIES + GALLERY -->
-<section id="gallery">
-<h2>Hobbies</h2>
-<div class="grid">
-    <div class="card">Gaming</div>
-    <div class="card">Cooking</div>
-    <div class="card">Movies</div>
-    <div class="card">Swimming</div>
-    <div class="card">Gym</div>
-</div>
-
-<h2>Gallery</h2>
-<div class="gallery">
-    <img src="img1.jpg">
-    <img src="img2.jpg">
-    <img src="img3.jpg">
-    <img src="img4.jpg">
-    <img src="img5.jpg">
-    <img src="img6.jpg">
-</div>
-</section>
-
-<!-- CONTACT -->
 <section id="contact">
 <h2>Contact</h2>
-
 <div class="card">
-
-<p>Email:
-<a href="mailto:emranazizi1002@gmail.com">
-emranazizi1002@gmail.com
-</a>
-</p>
-
-<p>Instagram:
-<a href="https://www.instagram.com/shahzada_official_001" target="_blank">
-Open Instagram Profile
-</a>
-</p>
-
-<p>LinkedIn:
-<a href="https://www.linkedin.com/in/emran-azizi-5b2409403" target="_blank">
-Open LinkedIn Profile
-</a>
-</p>
-
-<p>Status: Open ONLY for Part-Time / Student Job (Werkstudent)</p>
-
+<p><a href="mailto:emranazizi1002@gmail.com">Email</a></p>
+<p><a href="https://www.linkedin.com/in/emran-azizi-5b2409403" target="_blank">LinkedIn</a></p>
+<p><a href="https://www.instagram.com/shahzada_official_001" target="_blank">Instagram</a></p>
 </div>
-
 </section>
 
 <script>
-const canvas = document.getElementById("code");
+// CURSOR
+const cursor = document.getElementById("cursor");
+document.addEventListener("mousemove", e => {
+cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+});
+
+// TYPING EFFECT
+const text = ["Full Stack Developer", "AI Enthusiast", "Software Engineer"];
+let i = 0, j = 0;
+const typing = document.getElementById("typing");
+
+function type(){
+if(j < text[i].length){
+typing.innerHTML += text[i][j];
+j++;
+setTimeout(type, 80);
+}else{
+setTimeout(() => {
+typing.innerHTML = "";
+j = 0;
+i = (i + 1) % text.length;
+type();
+}, 1500);
+}
+}
+type();
+
+// PARTICLES
+const canvas = document.getElementById("bg");
 const ctx = canvas.getContext("2d");
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-let letters = "01 DATA AI CODE".split("");
-let fontSize = 13;
-let columns = canvas.width / fontSize;
-let drops = Array(Math.floor(columns)).fill(1);
+let particles = [];
 
-function draw(){
-    ctx.fillStyle = "rgba(0,0,0,0.08)";
-    ctx.fillRect(0,0,canvas.width,canvas.height);
-
-    ctx.fillStyle = "#00f7ff";
-    ctx.font = fontSize + "px monospace";
-
-    for(let i=0;i<drops.length;i++){
-        let text = letters[Math.floor(Math.random()*letters.length)];
-        ctx.fillText(text, i*fontSize, drops[i]*fontSize);
-
-        if(drops[i]*fontSize > canvas.height && Math.random() > 0.98){
-            drops[i]=0;
-        }
-
-        drops[i]++;
-    }
+for(let i=0;i<80;i++){
+particles.push({
+x: Math.random()*canvas.width,
+y: Math.random()*canvas.height,
+size: Math.random()*2
+});
 }
 
-setInterval(draw, 50);
+function animate(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+particles.forEach(p=>{
+p.y += 0.5;
+if(p.y > canvas.height) p.y = 0;
+
+ctx.fillStyle = "#00f7ff";
+ctx.fillRect(p.x, p.y, p.size, p.size);
+});
+
+requestAnimationFrame(animate);
+}
+animate();
 </script>
 
 </body>
