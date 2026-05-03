@@ -96,16 +96,16 @@ nav a {
 
     padding: 10px 16px;
 
-    background: rgba(0,255,136,0.15);
-    color: #00ff88;
+    background: rgba(255,255,255,0.05);
+    color: white;
 
-    border: 1px solid #00ff88;
+    border: 1px solid rgba(255,255,255,0.2);
     border-radius: 8px;
 
     text-decoration: none;
     font-weight: 600;
 
-    margin: 0; /* ❌ remove spacing conflicts */
+    margin: 0;
 }
 
 section {
@@ -139,23 +139,24 @@ h2 {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* BUTTON POSITION FIX */
+/* BUTTON POSITION (Certificates + Projects) */
 .card .btn {
     margin-top: auto;
     align-self: flex-start;
 }
 
-/* OPTIONAL FOOTER (used in certificates) */
+/* BADGE + BUTTON GROUP (Certificates only) */
 .card-footer {
     margin-top: auto;
 
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* better for left alignment */
+    align-items: flex-start;
 
     gap: 8px;
 }
 
+/* HOVER EFFECT */
 .card:hover {
     transform: translateY(-6px);
     box-shadow: 0 10px 25px rgba(0,247,255,0.25);
