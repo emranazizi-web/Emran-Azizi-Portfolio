@@ -91,10 +91,9 @@ nav a {
 }
 
 .btn {
-    display: block;
+    display: inline-block;
     width: fit-content;
 
-    margin-top: 10px;
     padding: 10px 16px;
 
     background: rgba(0,255,136,0.15);
@@ -105,6 +104,8 @@ nav a {
 
     text-decoration: none;
     font-weight: 600;
+
+    margin: 0; /* ❌ remove spacing conflicts */
 }
 
 section {
@@ -138,12 +139,19 @@ h2 {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* BUTTON POSITION FIX */
+.card .btn {
+    margin-top: auto;
+    align-self: flex-start;
+}
+
+/* OPTIONAL FOOTER (used in certificates) */
 .card-footer {
     margin-top: auto;
 
     display: flex;
     flex-direction: column;
-    align-items: stretch;   /* 🔥 change this */
+    align-items: flex-start; /* better for left alignment */
 
     gap: 8px;
 }
@@ -152,7 +160,6 @@ h2 {
     transform: translateY(-6px);
     box-shadow: 0 10px 25px rgba(0,247,255,0.25);
 }
-
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
