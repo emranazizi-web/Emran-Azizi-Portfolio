@@ -155,7 +155,9 @@ h2 {
     transform: scale(1.08);
     box-shadow: 0 10px 25px rgba(0,247,255,0.3);
 }
-    #contact a {
+
+/* CONTACT LINKS */
+#contact a {
     color: #00f7ff;
     text-decoration: none;
 }
@@ -163,6 +165,18 @@ h2 {
 #contact a:hover {
     text-decoration: underline;
     color: #00ff88;
+}
+
+/* BADGE STYLE (separate block!) */
+.badge {
+    display: inline-block;
+    padding: 4px 10px;
+    margin-top: 8px;
+    font-size: 12px;
+    background: rgba(0,255,136,0.15);
+    color: #00ff88;
+    border: 1px solid #00ff88;
+    border-radius: 20px;
 }
 </style>
 </head>
@@ -181,7 +195,6 @@ h2 {
     <a href="#contact">Contact</a>
 </nav>
 
-<!-- HERO -->
 <!-- HERO -->
 <div class="hero" id="about">
 
@@ -221,26 +234,30 @@ h2 {
 <div class="grid">
 
     <div class="card">
-        <h3>High School Diploma</h3>
+        <h3>🎓 High School Diploma</h3>
         <p>Completed secondary education with focus on science and mathematics.</p>
+        <span class="badge">Verified Certificate</span><br>
         <a class="btn" href="diploma.pdf" target="_blank">View Certificate</a>
     </div>
 
     <div class="card">
-        <h3>Foundation Course – Software Engineering</h3>
-        <p>Completed foundation studies in software engineering, programming basics, and IT fundamentals.</p>
+        <h3>💻 Foundation Course – Software Engineering</h3>
+        <p>Foundation in software engineering, programming basics, and IT fundamentals.</p>
+        <span class="badge">Verified Certificate</span><br>
         <a class="btn" href="foundation-course.pdf" target="_blank">View Certificate</a>
     </div>
 
     <div class="card">
-        <h3>CompTIA A+ Certificate</h3>
-        <p>Completed studies in Computer Hardware and Software base.</p>
+        <h3>🛠 CompTIA A+ Certificate</h3>
+        <p>Fundamentals of computer hardware, software, and troubleshooting.</p>
+        <span class="badge">IT Certification</span><br>
         <a class="btn" href="computer-a+.pdf" target="_blank">View Certificate</a>
     </div>
 
     <div class="card">
-        <h3>CompTIA Network+ Certificate</h3>
-        <p>Completed studies in Network and IT fundamentals.</p>
+        <h3>🌐 CompTIA Network+ Certificate</h3>
+        <p>Core knowledge of networking concepts, infrastructure, and IT systems.</p>
+        <span class="badge">IT Certification</span><br>
         <a class="btn" href="computer-n+.pdf" target="_blank">View Certificate</a>
     </div>
 
