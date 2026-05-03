@@ -216,7 +216,7 @@ h2 {
     color: #00ff88;
 }
 
-/* BADGE STYLE (separate block!) */
+/* BADGE STYLE */
 .badge {
     display: inline-block;
     padding: 4px 10px;
@@ -228,9 +228,24 @@ h2 {
     border-radius: 20px;
 }
 
+/* BUTTON FIX (IMPORTANT) */
 .btn {
     display: inline-block;
-    margin-top: 10px;
+    width: fit-content;
+
+    padding: 10px 16px;
+
+    background: rgba(0,247,255,0.15);
+    color: #00f7ff;
+
+    border: 1px solid #00f7ff;
+    border-radius: 8px;
+
+    text-decoration: none;
+    font-weight: 600;
+
+    margin-top: auto;        /* pushes button to bottom */
+    align-self: flex-start;  /* keeps it LEFT inside card */
 }
     
 </style>
@@ -456,7 +471,9 @@ h2 {
     <div class="card">
         <h3>🧑‍💻 Computer Lab Assistant</h3>
 
-        <span class="badge">IT Support</span>
+        <div class="badge-wrap">
+            <span class="badge">IT Support</span>
+        </div>
 
         <p>
             Assisted students with basic IT and software issues, supported computer lab setup,
@@ -476,7 +493,9 @@ h2 {
     <div class="card">
         <h3>📦 Warehouse & Logistics Assistant</h3>
 
-        <span class="badge">Operations</span>
+        <div class="badge-wrap">
+            <span class="badge">Operations</span>
+        </div>
 
         <p>
             Supported inventory management, packaging, and organization of goods in a fast-paced environment.
@@ -495,7 +514,9 @@ h2 {
     <div class="card">
         <h3>🍽️ Restaurant Worker</h3>
 
-        <span class="badge">Customer Service</span>
+        <div class="badge-wrap">
+            <span class="badge">Customer Service</span>
+        </div>
 
         <p>
             Worked in customer service and food preparation, ensuring fast service and customer satisfaction.
@@ -514,7 +535,9 @@ h2 {
     <div class="card">
         <h3>👨‍🎓 Project Collaboration (University)</h3>
 
-        <span class="badge">Academic Project</span>
+        <div class="badge-wrap">
+            <span class="badge">Academic Project</span>
+        </div>
 
         <p>
             Worked on group academic projects focusing on software engineering basics and documentation.
