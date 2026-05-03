@@ -132,9 +132,12 @@ h2 {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card .btn {
+.card-footer {
     margin-top: auto;
-    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
 }
 
 .card:hover {
@@ -249,29 +252,41 @@ h2 {
     <div class="card">
         <h3>🎓 High School Diploma</h3>
         <p>Completed secondary education with focus on science and mathematics.</p>
-        <span class="badge">Verified Certificate</span><br>
-        <a class="btn" href="diploma.pdf" target="_blank">View Certificate</a>
+
+        <div class="card-footer">
+            <span class="badge">Verified Certificate</span>
+            <a class="btn" href="diploma.pdf" target="_blank">View Certificate</a>
+        </div>
     </div>
 
     <div class="card">
         <h3>💻 Foundation Course – Software Engineering</h3>
         <p>Foundation in software engineering, programming basics, and IT fundamentals.</p>
-        <span class="badge">Verified Certificate</span><br>
-        <a class="btn" href="foundation-course.pdf" target="_blank">View Certificate</a>
+
+        <div class="card-footer">
+            <span class="badge">Verified Certificate</span>
+            <a class="btn" href="foundation-course.pdf" target="_blank">View Certificate</a>
+        </div>
     </div>
 
     <div class="card">
         <h3>🛠 CompTIA A+ Certificate</h3>
         <p>Fundamentals of computer hardware, software, and troubleshooting.</p>
-        <span class="badge">IT Certification</span><br>
-        <a class="btn" href="computer-a+.pdf" target="_blank">View Certificate</a>
+
+        <div class="card-footer">
+            <span class="badge">IT Certification</span>
+            <a class="btn" href="computer-a+.pdf" target="_blank">View Certificate</a>
+        </div>
     </div>
 
     <div class="card">
         <h3>🌐 CompTIA Network+ Certificate</h3>
         <p>Core knowledge of networking concepts, infrastructure, and IT systems.</p>
-        <span class="badge">IT Certification</span><br>
-        <a class="btn" href="computer-n+.pdf" target="_blank">View Certificate</a>
+
+        <div class="card-footer">
+            <span class="badge">IT Certification</span>
+            <a class="btn" href="computer-n+.pdf" target="_blank">View Certificate</a>
+        </div>
     </div>
 
 </div>
