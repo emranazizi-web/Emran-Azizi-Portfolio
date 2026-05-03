@@ -91,12 +91,18 @@ nav a {
 }
 
 .btn {
-    display: inline-block;
-    margin: 10px;
+    display: block;
+    width: fit-content;
+
+    margin-top: 10px;
     padding: 10px 16px;
-    background: #00f7ff;
-    color: black;
+
+    background: rgba(0,255,136,0.15);
+    color: #00ff88;
+
+    border: 1px solid #00ff88;
     border-radius: 8px;
+
     text-decoration: none;
     font-weight: 600;
 }
@@ -134,9 +140,11 @@ h2 {
 
 .card-footer {
     margin-top: auto;
+
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;   /* 🔥 change this */
+
     gap: 8px;
 }
 
