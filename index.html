@@ -264,10 +264,17 @@ h2 {
 }
 
 #experience .card {
-    height: 420px;          /* FORCE fixed height instead of min-height */
+    min-height: 380px;     /* gives consistent minimum size */
     padding: 22px;
     display: flex;
     flex-direction: column;
+    gap: 10px;
+
+    box-sizing: border-box; /* prevents overflow issues */
+}
+
+#experience .meta {
+    margin-top: auto;  /* keeps bottom section aligned in all cards */
 }
     
 </style>
