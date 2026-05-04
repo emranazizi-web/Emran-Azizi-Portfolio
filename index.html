@@ -247,62 +247,31 @@ h2 {
    EXPERIENCE SECTION (MANUAL MODE)
 ========================= */
 
-/* GRID STAYS THE SAME */
+
+/* GRID */
 #experience .grid {
     grid-template-columns: repeat(4, 1fr);
     align-items: stretch;
 }
 
-/* CARD = FULL MANUAL CONTROL */
+/* CARD BASE (NO AUTO SYSTEMS) */
 #experience .card {
     min-height: 440px;
     padding: 24px;
 
-    display: block;   /* IMPORTANT: disables flex system */
+    position: relative;
     box-sizing: border-box;
 
-    position: relative;
+    display: block;
 }
 
-/* RESET ALL DEFAULT SPACING */
+/* REMOVE ALL DEFAULT SPACING */
 #experience .card h3,
 #experience .card p,
 #experience .card ul {
     margin: 0;
     padding: 0;
 }
-
-/* BADGE POSITION (MANUAL CONTROL READY) */
-.badge-wrap {
-    display: flex;
-    justify-content: flex-start;
-
-    margin: 8px 0 10px 0; /* YOU CAN CHANGE THIS */
-}
-
-/* TITLE SPACING (YOU CONTROL) */
-#experience .card h3 {
-    margin-bottom: 12px;
-}
-
-/* DESCRIPTION SPACING */
-#experience .card p {
-    margin-bottom: 12px;
-    line-height: 1.6;
-}
-
-/* LIST SPACING */
-#experience .card ul {
-    margin-left: 18px;
-    margin-bottom: 12px;
-}
-
-/* REMOVE AUTO PUSH (IMPORTANT) */
-#experience .meta {
-    margin-top: 0;
-}
-    
-</style>
 </head>
 
 
