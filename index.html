@@ -395,6 +395,65 @@ h2 {
     right: 24px;
 }   
 
+    
+/* =========================
+   GRID (kept normal)
+========================= */
+#certificates .grid {
+    display: grid;
+    grid-tematple-columns: repeat(4, 1fr);
+    align-items: stretch;
+}
+
+/* =========================
+   CARD BASE
+========================= */
+#certificates .card {
+    min-height: 420px;
+    padding: 24px;
+    box-sizing: border-box;
+
+    position: relative;
+}
+
+/* =========================
+   MAKE ELEMENTS MANUAL
+========================= */
+#certificates .card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-height: 420px;
+}
+
+/* =========================================================
+   BOX 1
+========================================================= */
+#certificates .card:nth-child(1) h3 { top: 20px; }
+#certificates .card:nth-child(1) p { top: 90px; }
+#certificates .card:nth-child(1) .card-footer { bottom: 20px; }
+
+/* =========================================================
+   BOX 2
+========================================================= */
+#certificates .card:nth-child(2) h3 { top: 20px; }
+#certificates .card:nth-child(2) p { top: 90px; }
+#certificates .card:nth-child(2) .card-footer { bottom: 20px; }
+
+/* =========================================================
+   BOX 3
+========================================================= */
+#certificates .card:nth-child(3) h3 { top: 20px; }
+#certificates .card:nth-child(3) p { top: 90px; }
+#certificates .card:nth-child(3) .card-footer { bottom: 20px; }
+
+/* =========================================================
+   BOX 4
+========================================================= */
+#certificates .card:nth-child(4) h3 { top: 20px; }
+#certificates .card:nth-child(4) p { top: 90px; }
+#certificates .card:nth-child(4) .card-footer { bottom: 20px; }
+    
 </style>
 <body>
 
