@@ -264,13 +264,10 @@ h2 {
 }
 
 #experience .card {
-    min-height: 360px;   /* makes boxes taller */
-    padding: 22px;       /* slightly more breathing space */
-}
-
-/* Push content into better vertical spacing */
-#experience .card .meta {
-    margin-top: 10px;
+    height: 420px;          /* FORCE fixed height instead of min-height */
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
 }
     
 </style>
