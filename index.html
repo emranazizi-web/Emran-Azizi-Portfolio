@@ -243,10 +243,10 @@ h2 {
 }
 
 
+
 /* =========================
    EXPERIENCE SECTION (MANUAL MODE)
 ========================= */
-
 
 /* GRID */
 #experience .grid {
@@ -254,7 +254,7 @@ h2 {
     align-items: stretch;
 }
 
-/* CARD BASE (NO AUTO SYSTEMS) */
+/* CARD BASE */
 #experience .card {
     min-height: 440px;
     padding: 24px;
@@ -265,16 +265,46 @@ h2 {
     display: block;
 }
 
-/* REMOVE ALL DEFAULT SPACING */
+/* RESET DEFAULT SPACING */
 #experience .card h3,
 #experience .card p,
 #experience .card ul {
     margin: 0;
     padding: 0;
 }
-</head>
 
+/* TITLE */
+#experience .card h3 {
+    position: relative;
+    top: 0px;   /* adjust manually */
+}
 
+/* BADGE (SCOPED ONLY TO EXPERIENCE) */
+#experience .badge-wrap {
+    position: relative;
+    top: 10px;  /* adjust manually */
+    margin: 0;
+}
+
+/* DESCRIPTION */
+#experience .card p {
+    position: relative;
+    top: 15px;  /* adjust manually */
+}
+
+/* LIST */
+#experience .card ul {
+    position: relative;
+    top: 20px;  /* adjust manually */
+}
+
+/* META SECTION (IMPORTANT FIX) */
+#experience .meta {
+    position: relative;
+    top: 25px;  /* adjust manually */
+}
+
+</style>
 <body>
 
 <canvas id="code"></canvas>
