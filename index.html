@@ -134,6 +134,10 @@ h2 {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 16px;
 }
+   
+#experience .grid {
+    grid-template-columns: repeat(4, 1fr);
+}
 
 .card {
     background: rgba(255,255,255,0.05);
@@ -238,70 +242,52 @@ h2 {
 }
 
 /* EXPERIENCE FIX */
-.card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(0,247,255,0.15);
-    padding: 18px;
-    border-radius: 12px;
+#experience .grid {
+    grid-template-columns: repeat(4, 1fr);
+}
 
+/* Experience cards only */
+#experience .card {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-/* TITLE */
-.card h3 {
+/* Title */
+#experience .card h3 {
     margin: 0;
 }
 
-/* BADGE POSITION (UNDER TITLE, ALWAYS SAME PLACE) */
-.badge-wrap {
+/* Badge wrapper */
+#experience .badge-wrap {
     display: flex;
 }
 
-/* BADGE STYLE */
-.badge {
-    display: inline-block;
-    padding: 4px 10px;
-    font-size: 12px;
-    background: rgba(0,255,136,0.15);
-    color: #00ff88;
-    border: 1px solid #00ff88;
-    border-radius: 20px;
-}
-
-/* DESCRIPTION */
-.card > p {
+/* Description */
+#experience .card > p {
     margin: 0;
 }
 
-/* RESPONSIBILITIES + SKILLS ALIGNMENT */
-.meta {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin-top: 10px;
-    align-items: start;
-}
-
-.responsibilities,
-.skills {
+/* Responsibilities + Skills layout */
+#experience .meta {
     display: flex;
     flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
 }
 
-/* LIST CLEANING */
-.card ul {
+/* Lists */
+#experience .card ul {
     margin: 6px 0 0 18px;
     padding: 0;
 }
 
-/* MOBILE */
+/* Mobile fix */
 @media (max-width: 600px) {
-    .meta {
+    #experience .grid {
         grid-template-columns: 1fr;
     }
-}   
+}
 </style>
 </head>
 
