@@ -454,21 +454,21 @@ h2 {
 }
 
 
+
 /* =========================
-   CONTACT WRAPPER
-   (controls distance from hero)
+   CONTACT WRAPPER (VERY CLOSE)
 ========================= */
 .contact-wrapper {
     display: flex;
     justify-content: center;
-    margin-top: 5px;   /* 🔥 very close to description */
+    margin-top: 0px;   /* 🔥 almost touching description */
 }
 
 /* =========================
-   CONTACT CARD
+   CONTACT CARD (SMALL + CLEAN)
 ========================= */
 .contact-card {
-    max-width: 300px;   /* 🔥 smaller box */
+    max-width: 300px;
     width: 100%;
 
     background: rgba(255,255,255,0.05);
@@ -479,7 +479,7 @@ h2 {
 
     display: flex;
     flex-direction: column;
-    align-items: flex-start;   /* 🔥 professional left alignment */
+    align-items: flex-start;
     text-align: left;
 
     gap: 10px;
@@ -516,7 +516,6 @@ h2 {
     color: #00f7ff;
     font-weight: 600;
     text-decoration: none;
-    transition: 0.3s ease;
 }
 
 .contact-item a:hover {
@@ -524,7 +523,7 @@ h2 {
 }
 
 /* =========================
-   JOB BADGE
+   OPEN TO JOB (IMPROVED)
 ========================= */
 .job-badge {
     font-size: 11px;
@@ -536,13 +535,16 @@ h2 {
     color: #00ff88;
 
     align-self: flex-start;
+
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 /* =========================
-   BUTTON (CV)
+   CV BUTTON
 ========================= */
 .contact-card .btn {
-    margin-top: 4px;
+    margin-top: 5px;
     align-self: flex-start;
 }
     
