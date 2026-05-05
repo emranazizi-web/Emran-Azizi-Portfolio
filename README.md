@@ -53,12 +53,9 @@ This website includes:
 
 ## 📁 Project Structure
 
-```
+```bash
 Emran-Azizi-Portfolio/
-│
-├── index.html
-├── style.css
-├── script.js
+├── index.html   (HTML + CSS + JavaScript inside)
 │
 ├── profile.jpg
 ├── cv.pdf
