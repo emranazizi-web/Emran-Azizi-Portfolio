@@ -459,14 +459,14 @@ h2 {
 .contact-wrapper {
     display: flex;
     justify-content: center;
-    margin-top: 10px; /* small gap so it sits close to description */
+    margin-top: 12px; /* close to hero */
 }
 
 /* =========================
-   CONTACT CARD (SMALL + PROFESSIONAL)
+   CONTACT CARD (SMALL + CLEAN)
 ========================= */
 .contact-card {
-    max-width: 320px;
+    max-width: 300px;
     width: 100%;
 
     background: rgba(255,255,255,0.05);
@@ -478,7 +478,6 @@ h2 {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    text-align: left;
 
     gap: 10px;
 
@@ -501,6 +500,7 @@ h2 {
     display: flex;
     flex-direction: column;
     gap: 3px;
+    width: 100%;
 }
 
 .contact-item span {
@@ -519,13 +519,14 @@ h2 {
 }
 
 /* =========================
-   OPEN TO BADGE (SMALL GREEN)
+   OPEN TO BADGE (CENTER CLEAN LOOK)
 ========================= */
 .open-badge {
     display: inline-block;
 
     padding: 6px 12px;
-    margin: 5px 0 5px 0;
+    margin-top: 4px;
+    margin-bottom: 4px;
 
     font-size: 11px;
     font-weight: 600;
@@ -542,13 +543,13 @@ h2 {
 }
 
 /* =========================
-   CV BUTTON
+   CV BUTTON (CLEAN ALIGNMENT)
 ========================= */
 .contact-card .btn {
-    margin-top: 5px;
+    margin-top: 6px;
     align-self: flex-start;
 }
-    
+
 </style>
 <body>
 
@@ -571,7 +572,7 @@ h2 {
 
     <h1>Emran Azizi</h1>
 
-<!-- 🔥 NEW OPEN TO WORK BADGE (MOVED HERE) -->
+    <!-- OPEN TO BADGE -->
     <div class="open-badge">
         OPEN TO PART-TIME / STUDENT JOB (WERKSTUDENT)
     </div>
@@ -582,14 +583,18 @@ h2 {
     </p>
 
     <p>
-        I want to become a skilled Software Engineer, Application and Software Developer, and full-stack Web Developer also continue my academic journey up to PhD level in Software Engineering. 
+        I want to become a skilled Software Engineer, Application and Software Developer, and full-stack Web Developer also continue my academic journey up to PhD level in Software Engineering.
         I enjoy solving real-world problems, building applications, and continuously improving my skills and taking part in Humans Technology Development.
 
-        I am highly motivated, hardworking and committed to giving my best in every task. I am eager to learn new skills, take on challenges, and contribute
-        to the growth and success of your company/organization.
+        I am highly motivated, hardworking and committed to giving my best in every task.
     </p>
 
-</div> <!-- HERO END -->
+    <!-- CV BUTTON (UNDER TEXT) -->
+    <a class="btn hero-cv" href="cv.pdf" target="_blank">
+        View CV
+    </a>
+
+</div>
 
 <!-- CONTACT -->
 <div class="contact-wrapper">
@@ -610,10 +615,6 @@ h2 {
                 linkedin.com/in/emran-azizi
             </a>
         </div>
-
-        <a class="btn" href="cv.pdf" target="_blank">
-            View CV
-        </a>
 
     </div>
 </div>
