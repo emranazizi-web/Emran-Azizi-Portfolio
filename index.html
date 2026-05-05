@@ -454,13 +454,21 @@ h2 {
 }
 
 /* =========================
+   HERO (IMPORTANT: controls CV spacing)
+========================= */
+.hero {
+    text-align: center;
+    padding: 140px 20px 8px; /* 🔥 reduced bottom space */
+}
+
+/* =========================
    CONTACT WRAPPER (VERY CLOSE TO HERO)
 ========================= */
 .contact-wrapper {
     display: flex;
     justify-content: center;
 
-    margin-top: 2px; /* 🔥 almost touching CV */
+    margin-top: 0px; /* 🔥 removes gap completely */
 }
 
 /* =========================
@@ -494,22 +502,21 @@ h2 {
 }
 
 /* =========================
-   CONTACT ITEM (ICON + TEXT SIDE BY SIDE)
+   CONTACT ITEM (CLEAN ALIGNMENT)
 ========================= */
 .contact-item {
     display: flex;
-    align-items: center;   /* 🔥 horizontal alignment */
+    align-items: center;
     gap: 10px;
     width: 100%;
-
     padding: 6px 0;
 }
 
-/* icon text (Email / LinkedIn label) */
+/* label (Email / LinkedIn / GitHub) */
 .contact-item span {
     color: #cfd8dc;
     font-size: 13px;
-    min-width: 70px; /* keeps alignment clean */
+    min-width: 80px;
 }
 
 /* link */
@@ -524,7 +531,7 @@ h2 {
 }
 
 /* =========================
-   OPEN TO BADGE (GREEN SMALL BOX)
+   OPEN TO BADGE
 ========================= */
 .open-badge {
     display: inline-block;
@@ -607,21 +614,21 @@ h2 {
         <h2>Contact</h2>
 
         <div class="contact-item">
-            <span>📧 Email</span>
+            <span>Email:</span>
             <a href="mailto:emranazizi1002@gmail.com">
                 emranazizi1002@gmail.com
             </a>
         </div>
 
         <div class="contact-item">
-            <span>💼 LinkedIn</span>
+            <span>LinkedIn:</span>
             <a href="https://www.linkedin.com/in/emran-azizi-5b2409403" target="_blank">
                 linkedin.com/in/emran-azizi
             </a>
         </div>
 
         <div class="contact-item">
-            <span>🐙 GitHub</span>
+            <span>GitHub:</span>
             <a href="https://github.com/emranazizi-web" target="_blank">
                 github.com/emranazizi-web
             </a>
