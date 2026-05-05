@@ -453,9 +453,21 @@ h2 {
     padding: 3px 8px;
 }
 
+/* =========================
+   CONTACT WRAPPER
+========================= */
+.contact-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;   /* 🔥 close to hero section */
+}
+
+/* =========================
+   CONTACT CARD
+========================= */
 .contact-card {
     max-width: 360px;
-    margin: 10px auto 0 auto;  /* close to hero text */
+    width: 100%;
 
     background: rgba(255,255,255,0.05);
     border: 1px solid rgba(0,247,255,0.2);
@@ -465,12 +477,71 @@ h2 {
 
     display: flex;
     flex-direction: column;
-    align-items: flex-start;   /* 🔥 LEFT ALIGN INSIDE */
-    text-align: left;          /* 🔥 PROFESSIONAL LOOK */
+    align-items: flex-start;  /* 🔥 LEFT content */
+    text-align: left;
 
     gap: 12px;
 
     box-shadow: 0 10px 25px rgba(0,247,255,0.12);
+}
+
+/* =========================
+   TITLE
+========================= */
+.contact-card h2 {
+    margin: 0;
+    font-size: 18px;
+    color: #00f7ff;
+}
+
+/* =========================
+   CONTACT ITEMS
+========================= */
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+    width: 100%;
+}
+
+.contact-item span {
+    color: #cfd8dc;
+    font-size: 13px;
+}
+
+.contact-item a {
+    color: #00f7ff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: #00ff88;
+}
+
+/* =========================
+   JOB BADGE
+========================= */
+.job-badge {
+    font-size: 11px;
+    padding: 6px 10px;
+    border-radius: 20px;
+
+    background: rgba(0,255,136,0.15);
+    border: 1px solid #00ff88;
+    color: #00ff88;
+
+    align-self: flex-start;
+}
+
+/* =========================
+   BUTTON (reuse your style)
+========================= */
+.contact-card .btn {
+    margin-top: 5px;
+    align-self: flex-start;
 }
     
 </style>
@@ -511,7 +582,6 @@ h2 {
 </div> <!-- HERO END -->
 
 <!-- CONTACT -->
-<section id="contact">
 <div class="contact-wrapper">
     <div class="card contact-card">
 
