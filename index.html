@@ -454,12 +454,12 @@ h2 {
 }
 
 /* =========================
-   CONTACT WRAPPER (VERY CLOSE TO CV)
+   CONTACT WRAPPER (CLOSE TO CV)
 ========================= */
 .contact-wrapper {
     display: flex;
     justify-content: center;
-    margin-top: 12px;
+    margin-top: 10px;
 }
 
 /* =========================
@@ -492,31 +492,34 @@ h2 {
 }
 
 /* =========================
-   CONTACT ROW
+   CONTACT ROW (FIXED ALIGNMENT)
 ========================= */
 .contact-item {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     width: 100%;
     padding: 4px 0;
 }
 
-/* LABEL (Email / LinkedIn / GitHub) */
+/* LABEL COLUMN (ALL SAME START POINT) */
 .contact-item span {
-    color: #ffffff;     /* white */
+    color: #ffffff;
     font-size: 13px;
-    font-weight: 600;   /* bold */
-    min-width: 90px;
+    font-weight: 600;
+
+    width: 95px;        /* 🔥 FIXED COLUMN WIDTH */
+    flex-shrink: 0;     /* prevents shrinking */
 }
 
-/* VALUE (your email / links / username) */
+/* VALUE COLUMN (ALIGNED PERFECTLY) */
 .contact-item a {
-    color: #00f7ff;     /* cyan like title */
+    color: #00f7ff;
     font-weight: 500;
     text-decoration: none;
+
     flex: 1;
-    text-align: right;
+    text-align: left;   /* 🔥 important fix */
+    word-break: break-word;
 }
 
 .contact-item a:hover {
