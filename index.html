@@ -453,7 +453,6 @@ h2 {
     padding: 3px 8px;
 }
 
-
 /* =========================
    CONTACT WRAPPER (VERY CLOSE TO HERO)
 ========================= */
@@ -461,11 +460,11 @@ h2 {
     display: flex;
     justify-content: center;
 
-    margin-top: 6px; /* 🔥 tighter gap to CV */
+    margin-top: 2px; /* 🔥 almost touching CV */
 }
 
 /* =========================
-   CONTACT CARD (SMALL + MODERN)
+   CONTACT CARD (SMALL + CLEAN)
 ========================= */
 .contact-card {
     max-width: 300px;
@@ -479,7 +478,6 @@ h2 {
 
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
 
     gap: 10px;
 
@@ -496,20 +494,25 @@ h2 {
 }
 
 /* =========================
-   CONTACT ITEMS
+   CONTACT ITEM (ICON + TEXT SIDE BY SIDE)
 ========================= */
 .contact-item {
     display: flex;
-    flex-direction: column;
-    gap: 3px;
+    align-items: center;   /* 🔥 horizontal alignment */
+    gap: 10px;
     width: 100%;
+
+    padding: 6px 0;
 }
 
+/* icon text (Email / LinkedIn label) */
 .contact-item span {
     color: #cfd8dc;
     font-size: 13px;
+    min-width: 70px; /* keeps alignment clean */
 }
 
+/* link */
 .contact-item a {
     color: #00f7ff;
     font-weight: 600;
@@ -521,7 +524,7 @@ h2 {
 }
 
 /* =========================
-   OPEN TO BADGE (CLEAN GREEN STYLE)
+   OPEN TO BADGE (GREEN SMALL BOX)
 ========================= */
 .open-badge {
     display: inline-block;
@@ -544,7 +547,7 @@ h2 {
 }
 
 /* =========================
-   BUTTON INSIDE CONTACT
+   CV BUTTON
 ========================= */
 .contact-card .btn {
     margin-top: 6px;
