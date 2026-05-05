@@ -453,22 +453,20 @@ h2 {
     padding: 3px 8px;
 }
 
-
-
 /* =========================
-   CONTACT WRAPPER (VERY CLOSE)
+   CONTACT WRAPPER (CLOSE TO HERO)
 ========================= */
 .contact-wrapper {
     display: flex;
     justify-content: center;
-    margin-top: 0px;   /* 🔥 almost touching description */
+    margin-top: 10px; /* small gap so it sits close to description */
 }
 
 /* =========================
-   CONTACT CARD (SMALL + CLEAN)
+   CONTACT CARD (SMALL + PROFESSIONAL)
 ========================= */
 .contact-card {
-    max-width: 300px;
+    max-width: 320px;
     width: 100%;
 
     background: rgba(255,255,255,0.05);
@@ -502,9 +500,7 @@ h2 {
 .contact-item {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     gap: 3px;
-    width: 100%;
 }
 
 .contact-item span {
@@ -523,21 +519,26 @@ h2 {
 }
 
 /* =========================
-   OPEN TO JOB (IMPROVED)
+   OPEN TO BADGE (SMALL GREEN)
 ========================= */
-.job-badge {
+.open-badge {
+    display: inline-block;
+
+    padding: 6px 12px;
+    margin: 5px 0 5px 0;
+
     font-size: 11px;
-    padding: 6px 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+
+    color: #00ff88;
+    background: rgba(0,255,136,0.12);
+    border: 1px solid #00ff88;
+
     border-radius: 20px;
 
-    background: rgba(0,255,136,0.15);
-    border: 1px solid #00ff88;
-    color: #00ff88;
-
-    align-self: flex-start;
-
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    box-shadow: 0 0 10px rgba(0,255,136,0.15);
 }
 
 /* =========================
@@ -569,6 +570,11 @@ h2 {
     <img src="profile.jpg">
 
     <h1>Emran Azizi</h1>
+
+<!-- 🔥 NEW OPEN TO WORK BADGE (MOVED HERE) -->
+    <div class="open-badge">
+        OPEN TO PART-TIME / STUDENT JOB (WERKSTUDENT)
+    </div>
 
     <p>
         I am student of Software Engineering at GISMA University of Applied Sciences in Berlin, and currently in my second semester of Bachelor.
@@ -603,10 +609,6 @@ h2 {
             <a href="https://www.linkedin.com/in/emran-azizi-5b2409403" target="_blank">
                 linkedin.com/in/emran-azizi
             </a>
-        </div>
-
-        <div class="job-badge">
-            OPEN TO PART-TIME / STUDENT JOB (WERKSTUDENT)
         </div>
 
         <a class="btn" href="cv.pdf" target="_blank">
