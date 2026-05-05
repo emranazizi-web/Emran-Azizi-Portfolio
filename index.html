@@ -454,24 +454,16 @@ h2 {
 }
 
 /* =========================
-   HERO (controls CV spacing)
-========================= */
-.hero {
-    text-align: center;
-    padding: 140px 20px 4px; /* 🔥 very small bottom gap */
-}
-
-/* =========================
-   CONTACT WRAPPER (SUPER CLOSE)
+   CONTACT WRAPPER (VERY CLOSE TO CV)
 ========================= */
 .contact-wrapper {
     display: flex;
     justify-content: center;
-    margin-top: 8px; /* 🔥 almost touching CV */
+    margin-top: 12px;
 }
 
 /* =========================
-   CONTACT CARD (CLEAN + SMALL)
+   CONTACT CARD
 ========================= */
 .contact-card {
     max-width: 320px;
@@ -491,7 +483,7 @@ h2 {
 }
 
 /* =========================
-   TITLE (KEEP SAME STYLE)
+   TITLE
 ========================= */
 .contact-card h2 {
     margin: 0;
@@ -500,32 +492,31 @@ h2 {
 }
 
 /* =========================
-   CONTACT ROW (ONE LINE STYLE)
+   CONTACT ROW
 ========================= */
 .contact-item {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* label left, link right */
+    justify-content: space-between;
     width: 100%;
     padding: 4px 0;
-    gap: 10px;
 }
 
 /* LABEL (Email / LinkedIn / GitHub) */
 .contact-item span {
-    color: #ffffff;   /* 🔥 white text as you wanted */
+    color: #ffffff;     /* white */
     font-size: 13px;
-    font-weight: 500;
+    font-weight: 600;   /* bold */
     min-width: 90px;
 }
 
-/* LINK (also white as requested) */
+/* VALUE (your email / links / username) */
 .contact-item a {
-    color: #ffffff;   /* 🔥 white */
+    color: #00f7ff;     /* cyan like title */
     font-weight: 500;
     text-decoration: none;
-    text-align: right;
     flex: 1;
+    text-align: right;
 }
 
 .contact-item a:hover {
@@ -556,7 +547,7 @@ h2 {
 }
 
 /* =========================
-   CV BUTTON (UNCHANGED)
+   CV BUTTON
 ========================= */
 .contact-card .btn {
     margin-top: 6px;
