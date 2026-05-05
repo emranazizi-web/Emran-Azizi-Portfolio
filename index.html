@@ -454,47 +454,54 @@ h2 {
 }
 
 .contact-card {
-    max-width: 1000px;
-    margin: 0 auto;
+    max-width: 420px;              /* SMALLER BOX */
+    margin: 40px auto;            /* CENTER IT */
 
     background: rgba(255,255,255,0.05);
     border: 1px solid rgba(0,247,255,0.15);
 
     border-radius: 12px;
-    padding: 24px;
+    padding: 20px;
 
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    align-items: center;          /* CENTER CONTENT */
+    text-align: center;          /* CENTER TEXT */
+
+    gap: 14px;
 
     box-shadow: 0 10px 25px rgba(0,247,255,0.10);
+    transition: 0.3s ease;
 }
 
-/* FIX: better spacing consistency */
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,247,255,0.25);
+}
+
+/* TITLE */
 .contact-card h2 {
-    margin: 0 0 10px 0;
+    margin: 0;
     color: #00f7ff;
 }
 
-/* FIX: cleaner structure */
+/* ITEM */
 .contact-item {
     display: flex;
     flex-direction: column;
+    align-items: center;          /* CENTER ITEMS */
     gap: 4px;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+
+    padding: 8px 0;
 }
 
-/* remove last border */
-.contact-item:last-of-type {
-    border-bottom: none;
-}
-
+/* LABEL */
 .contact-item span {
     color: #cfd8dc;
-    font-size: 14px;
+    font-size: 13px;
 }
 
+/* LINK */
 .contact-item a {
     color: #00f7ff;
     font-weight: 600;
@@ -504,7 +511,12 @@ h2 {
 
 .contact-item a:hover {
     color: #00ff88;
-    text-decoration: underline;
+    transform: scale(1.05);
+}
+
+/* OPTIONAL: remove divider effect */
+.contact-item {
+    border: none;
 }
     
 </style>
