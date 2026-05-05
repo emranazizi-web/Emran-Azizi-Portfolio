@@ -52,6 +52,8 @@ This website includes:
 ---
 
 ## 📁 Project Structure
+
+```
 Emran-Azizi-Portfolio/
 │
 ├── index.html
@@ -70,6 +72,7 @@ Emran-Azizi-Portfolio/
 ├── blockchain.pdf
 │
 └── README.md
+```
 
 ## 📚 Sections Included
 
