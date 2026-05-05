@@ -5,8 +5,8 @@ This project showcases my skills, experience, education, and projects as a **Sof
 
 ---
 
-## 🌐 Live Portfolio
-👉 https://your-portfolio-link.com
+## 🌐 Live Portfolio Link
+👉 https://emranazizi-web.github.io/Emran-Azizi-Portfolio/
 
 ---
 
