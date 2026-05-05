@@ -70,7 +70,6 @@ Emran-Azizi-Portfolio/
 ├── blockchain.pdf
 │
 └── README.md
----
 
 ## 📚 Sections Included
 
