@@ -454,46 +454,44 @@ h2 {
 }
 
 /* =========================
-   HERO (IMPORTANT: controls CV spacing)
+   HERO (controls CV spacing)
 ========================= */
 .hero {
     text-align: center;
-    padding: 140px 20px 8px; /* 🔥 reduced bottom space */
+    padding: 140px 20px 4px; /* 🔥 very small bottom gap */
 }
 
 /* =========================
-   CONTACT WRAPPER (VERY CLOSE TO HERO)
+   CONTACT WRAPPER (SUPER CLOSE)
 ========================= */
 .contact-wrapper {
     display: flex;
     justify-content: center;
-
-    margin-top: 0px; /* 🔥 removes gap completely */
+    margin-top: 2px; /* 🔥 almost touching CV */
 }
 
 /* =========================
-   CONTACT CARD (SMALL + CLEAN)
+   CONTACT CARD (CLEAN + SMALL)
 ========================= */
 .contact-card {
-    max-width: 300px;
+    max-width: 320px;
     width: 100%;
 
     background: rgba(255,255,255,0.05);
     border: 1px solid rgba(0,247,255,0.2);
 
     border-radius: 14px;
-    padding: 14px;
+    padding: 12px;
 
     display: flex;
     flex-direction: column;
-
-    gap: 10px;
+    gap: 8px;
 
     box-shadow: 0 10px 25px rgba(0,247,255,0.12);
 }
 
 /* =========================
-   TITLE
+   TITLE (KEEP SAME STYLE)
 ========================= */
 .contact-card h2 {
     margin: 0;
@@ -502,28 +500,32 @@ h2 {
 }
 
 /* =========================
-   CONTACT ITEM (CLEAN ALIGNMENT)
+   CONTACT ROW (ONE LINE STYLE)
 ========================= */
 .contact-item {
     display: flex;
     align-items: center;
-    gap: 10px;
+    justify-content: space-between; /* label left, link right */
     width: 100%;
-    padding: 6px 0;
+    padding: 4px 0;
+    gap: 10px;
 }
 
-/* label (Email / LinkedIn / GitHub) */
+/* LABEL (Email / LinkedIn / GitHub) */
 .contact-item span {
-    color: #cfd8dc;
+    color: #ffffff;   /* 🔥 white text as you wanted */
     font-size: 13px;
-    min-width: 80px;
+    font-weight: 500;
+    min-width: 90px;
 }
 
-/* link */
+/* LINK (also white as requested) */
 .contact-item a {
-    color: #00f7ff;
-    font-weight: 600;
+    color: #ffffff;   /* 🔥 white */
+    font-weight: 500;
     text-decoration: none;
+    text-align: right;
+    flex: 1;
 }
 
 .contact-item a:hover {
@@ -536,7 +538,7 @@ h2 {
 .open-badge {
     display: inline-block;
 
-    padding: 6px 12px;
+    padding: 5px 10px;
     margin: 4px 0;
 
     font-size: 11px;
@@ -554,7 +556,7 @@ h2 {
 }
 
 /* =========================
-   CV BUTTON
+   CV BUTTON (UNCHANGED)
 ========================= */
 .contact-card .btn {
     margin-top: 6px;
