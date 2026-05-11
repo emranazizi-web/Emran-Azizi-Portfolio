@@ -593,19 +593,15 @@ h2 {
 #welcome-screen {
     position: fixed;
     inset: 0;
-
-    background: #05070f;
+    background: radial-gradient(circle at center, #0b1220 0%, #05070f 60%);
     display: flex;
     justify-content: center;
     align-items: center;
-
     z-index: 99999;
-
-    opacity: 1;
     transition: opacity 0.8s ease;
 }
 
-/* fade out class */
+/* fade out */
 #welcome-screen.hide {
     opacity: 0;
     pointer-events: none;
@@ -614,50 +610,81 @@ h2 {
 /* container */
 .welcome-box {
     text-align: center;
-    color: #00f7ff;
     font-family: 'Inter', sans-serif;
 
-    /* small upgrade for better spacing */
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
+
+    animation: floatIn 0.8s ease;
+}
+
+/* entry animation */
+@keyframes floatIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* typing text */
 #typing-text {
-    font-size: 28px;
+    font-size: 32px;
     font-weight: 700;
     color: #00f7ff;
-    text-shadow: 0 0 15px rgba(0,247,255,0.6);
-    min-height: 40px;
+    text-shadow:
+        0 0 10px rgba(0,247,255,0.4),
+        0 0 25px rgba(0,247,255,0.2);
 
-    /* smoother appearance */
+    min-height: 40px;
     letter-spacing: 1px;
+
+    animation: glowPulse 2.5s infinite;
 }
 
-/* loader bar background */
+/* subtle glow pulse */
+@keyframes glowPulse {
+    0% { text-shadow: 0 0 10px rgba(0,247,255,0.3); }
+    50% { text-shadow: 0 0 25px rgba(0,247,255,0.7); }
+    100% { text-shadow: 0 0 10px rgba(0,247,255,0.3); }
+}
+
+/* glow line */
+.glow-line {
+    width: 150px;
+    height: 2px;
+    background: linear-gradient(90deg, #00f7ff, #00ff88);
+    box-shadow: 0 0 12px rgba(0,247,255,0.4);
+    animation: linePulse 1.6s infinite alternate;
+    border-radius: 10px;
+}
+
+@keyframes linePulse {
+    from { transform: scaleX(0.8); opacity: 0.5; }
+    to { transform: scaleX(1.1); opacity: 1; }
+}
+
+/* loader */
 .loader-bar {
-    width: 260px;
-    height: 4px;
+    width: 270px;
+    height: 5px;
     background: rgba(255,255,255,0.08);
-    margin: 20px auto;
     border-radius: 20px;
     overflow: hidden;
-
-    /* slight glow */
-    box-shadow: 0 0 10px rgba(0,247,255,0.1);
+    box-shadow: 0 0 12px rgba(0,247,255,0.15);
 }
 
-/* loader fill animation */
 .loader-fill {
     height: 100%;
     width: 0%;
     background: linear-gradient(90deg, #00f7ff, #00ff88);
-    animation: loadBar 2.8s ease forwards;
-
-    /* glow effect */
-    box-shadow: 0 0 12px rgba(0,247,255,0.4);
+    animation: loadBar 3s ease forwards;
+    box-shadow: 0 0 15px rgba(0,247,255,0.4);
 }
 
 @keyframes loadBar {
@@ -665,13 +692,13 @@ h2 {
     100% { width: 100%; }
 }
 
-/* small text */
+/* sub text */
 .sub-text {
     font-size: 12px;
-    color: rgba(255,255,255,0.6);
+    color: rgba(255,255,255,0.55);
     letter-spacing: 1px;
-    margin-top: 10px;
 }
+
     
 </style>
 <body>
@@ -1277,17 +1304,17 @@ window.addEventListener("load", function () {
     let i = 0;
 
     // typing effect
-    function typeEffect() {
+    function type() {
         if (i < text.length) {
             typingEl.innerHTML += text.charAt(i);
             i++;
-            setTimeout(typeEffect, 60);
+            setTimeout(type, 55);
         }
     }
 
-    typeEffect();
+    type();
 
-    // total intro duration (sync with animation)
+    // total intro timing (sync with typing + loader)
     setTimeout(() => {
 
         screen.style.opacity = "0";
@@ -1296,7 +1323,7 @@ window.addEventListener("load", function () {
             screen.style.display = "none";
         }, 800);
 
-    }, 3600);
+    }, 3400);
 
 });
 </script>
