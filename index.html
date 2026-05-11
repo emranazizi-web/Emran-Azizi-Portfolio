@@ -988,6 +988,85 @@ h2 {
 </div>
 </section>
 
+    <!-- MESSAGE FORM -->
+<section id="message">
+    <h2>Send Me a Message</h2>
+
+    <div class="card" style="max-width:600px; margin:auto;">
+
+        <form action="https://formsubmit.co/emranazizi1002@gmail.com" method="POST">
+
+            <!-- Disable captcha -->
+            <input type="hidden" name="_captcha" value="false">
+
+            <!-- Optional subject -->
+            <input type="hidden" name="_subject" value="New Portfolio Message">
+
+            <!-- Redirect after submit -->
+            <input type="hidden" name="_next" value="https://yourwebsite.com/thanks.html">
+
+            <input 
+                type="text" 
+                name="name" 
+                placeholder="Your Name"
+                required
+                style="
+                    width:100%;
+                    padding:12px;
+                    margin-bottom:14px;
+                    background:rgba(255,255,255,0.05);
+                    border:1px solid rgba(0,247,255,0.2);
+                    border-radius:8px;
+                    color:white;
+                "
+            >
+
+            <input 
+                type="email" 
+                name="email" 
+                placeholder="Your Email"
+                required
+                style="
+                    width:100%;
+                    padding:12px;
+                    margin-bottom:14px;
+                    background:rgba(255,255,255,0.05);
+                    border:1px solid rgba(0,247,255,0.2);
+                    border-radius:8px;
+                    color:white;
+                "
+            >
+
+            <textarea 
+                name="message"
+                placeholder="Write your message..."
+                required
+                rows="6"
+                style="
+                    width:100%;
+                    padding:12px;
+                    margin-bottom:14px;
+                    background:rgba(255,255,255,0.05);
+                    border:1px solid rgba(0,247,255,0.2);
+                    border-radius:8px;
+                    color:white;
+                    resize:none;
+                "
+            ></textarea>
+
+            <button 
+                type="submit"
+                class="btn"
+                style="cursor:pointer;"
+            >
+                Send Message
+            </button>
+
+        </form>
+
+    </div>
+</section>
+
 
 <!-- ⭐ PROFESSIONAL CLOSING TEXT -->
 <section class="closing-section">
