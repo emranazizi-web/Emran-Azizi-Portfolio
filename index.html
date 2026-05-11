@@ -590,7 +590,7 @@ h2 {
     border-radius: 5px;
 }
 
- #welcome-screen {
+#welcome-screen {
     position: fixed;
     inset: 0;
 
@@ -616,6 +616,12 @@ h2 {
     text-align: center;
     color: #00f7ff;
     font-family: 'Inter', sans-serif;
+
+    /* small upgrade for better spacing */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
 
 /* typing text */
@@ -625,6 +631,9 @@ h2 {
     color: #00f7ff;
     text-shadow: 0 0 15px rgba(0,247,255,0.6);
     min-height: 40px;
+
+    /* smoother appearance */
+    letter-spacing: 1px;
 }
 
 /* loader bar background */
@@ -635,6 +644,9 @@ h2 {
     margin: 20px auto;
     border-radius: 20px;
     overflow: hidden;
+
+    /* slight glow */
+    box-shadow: 0 0 10px rgba(0,247,255,0.1);
 }
 
 /* loader fill animation */
@@ -643,6 +655,9 @@ h2 {
     width: 0%;
     background: linear-gradient(90deg, #00f7ff, #00ff88);
     animation: loadBar 2.8s ease forwards;
+
+    /* glow effect */
+    box-shadow: 0 0 12px rgba(0,247,255,0.4);
 }
 
 @keyframes loadBar {
@@ -663,18 +678,22 @@ h2 {
 
     <!-- WELCOME SCREEN -->
 <div id="welcome-screen">
-    
+
     <div class="welcome-box">
-        
+
         <h1 id="typing-text"></h1>
+
+        <div class="glow-line"></div>
 
         <div class="loader-bar">
             <div class="loader-fill"></div>
         </div>
 
-        <p class="sub-text">Initializing portfolio...</p>
+        <p class="sub-text">Booting system...</p>
 
     </div>
+
+</div>
 
 </div>
 
@@ -1251,39 +1270,33 @@ window.addEventListener("load", function () {
 
     const screen = document.getElementById("welcome-screen");
     const typingEl = document.getElementById("typing-text");
-    const loader = document.querySelector(".loader-fill");
 
-    if (!screen || !typingEl || !loader) return;
+    if (!screen || !typingEl) return;
 
-    // ===== TEXT =====
     const text = "Welcome to Emran Azizi Portfolio";
     let i = 0;
 
-    // ===== TYPING EFFECT =====
+    // typing effect
     function typeEffect() {
         if (i < text.length) {
             typingEl.innerHTML += text.charAt(i);
             i++;
-            setTimeout(typeEffect, 65);
+            setTimeout(typeEffect, 60);
         }
     }
 
     typeEffect();
 
-    // ===== LOADER CONTROL =====
-    loader.style.animation = "loadBar 3s ease forwards";
-
-    // ===== TOTAL TIMING (sync everything) =====
+    // total intro duration (sync with animation)
     setTimeout(() => {
 
         screen.style.opacity = "0";
-        screen.style.transition = "0.8s ease";
 
         setTimeout(() => {
             screen.style.display = "none";
         }, 800);
 
-    }, 3400); // matches typing + loader
+    }, 3600);
 
 });
 </script>
