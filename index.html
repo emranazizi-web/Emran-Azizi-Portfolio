@@ -1251,27 +1251,31 @@ window.addEventListener("load", function () {
 
     const screen = document.getElementById("welcome-screen");
     const typingEl = document.getElementById("typing-text");
+    const loader = document.querySelector(".loader-fill");
 
-    if (!screen || !typingEl) return;
+    if (!screen || !typingEl || !loader) return;
 
-    // ===== TYPING ANIMATION =====
+    // ===== TEXT =====
     const text = "Welcome to Emran Azizi Portfolio";
     let i = 0;
 
+    // ===== TYPING EFFECT =====
     function typeEffect() {
         if (i < text.length) {
             typingEl.innerHTML += text.charAt(i);
             i++;
-            setTimeout(typeEffect, 70);
+            setTimeout(typeEffect, 65);
         }
     }
 
     typeEffect();
 
-    // ===== TOTAL TIMING CONTROL =====
-    const totalTime = 3600; // matches typing + loader
+    // ===== LOADER CONTROL =====
+    loader.style.animation = "loadBar 3s ease forwards";
 
+    // ===== TOTAL TIMING (sync everything) =====
     setTimeout(() => {
+
         screen.style.opacity = "0";
         screen.style.transition = "0.8s ease";
 
@@ -1279,7 +1283,7 @@ window.addEventListener("load", function () {
             screen.style.display = "none";
         }, 800);
 
-    }, totalTime);
+    }, 3400); // matches typing + loader
 
 });
 </script>
