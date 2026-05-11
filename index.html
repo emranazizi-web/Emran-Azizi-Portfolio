@@ -589,7 +589,6 @@ h2 {
     margin: 8px auto 0 auto;
     border-radius: 5px;
 }
-
 #welcome-screen {
     position: fixed;
     inset: 0;
@@ -598,7 +597,8 @@ h2 {
     justify-content: center;
     align-items: center;
     z-index: 99999;
-    transition: opacity 0.8s ease;
+    transition: opacity 0.9s ease;
+    overflow: hidden;
 }
 
 /* fade out */
@@ -613,9 +613,18 @@ h2 {
     position: absolute;
     inset: 0;
     background: radial-gradient(circle, rgba(0,247,255,0.05) 1px, transparent 1px);
-    background-size: 40px 40px;
-    opacity: 0.2;
-    animation: moveBg 6s linear infinite;
+    background-size: 42px 42px;
+    opacity: 0.18;
+    animation: moveBg 8s linear infinite;
+}
+
+/* soft glow overlay */
+#welcome-screen::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(0,247,255,0.08), transparent 60%);
+    opacity: 0.5;
 }
 
 /* container */
@@ -626,22 +635,23 @@ h2 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
 
-    animation: floatIn 0.8s ease;
     position: relative;
     z-index: 2;
+
+    animation: floatIn 0.9s ease;
 }
 
 /* entry animation */
 @keyframes floatIn {
     from {
         opacity: 0;
-        transform: translateY(15px);
+        transform: translateY(18px) scale(0.98);
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
     }
 }
 
@@ -650,54 +660,70 @@ h2 {
     font-size: 32px;
     font-weight: 700;
     color: #00f7ff;
+    letter-spacing: 1px;
+
     text-shadow:
-        0 0 10px rgba(0,247,255,0.4),
+        0 0 10px rgba(0,247,255,0.35),
         0 0 25px rgba(0,247,255,0.2);
 
     min-height: 40px;
-    letter-spacing: 1px;
 
-    animation: glowPulse 2.5s infinite;
+    animation: glowPulse 2.8s infinite;
 }
 
 /* glow pulse */
 @keyframes glowPulse {
-    0% { text-shadow: 0 0 10px rgba(0,247,255,0.3); }
-    50% { text-shadow: 0 0 25px rgba(0,247,255,0.7); }
-    100% { text-shadow: 0 0 10px rgba(0,247,255,0.3); }
+    0% {
+        text-shadow: 0 0 10px rgba(0,247,255,0.25);
+    }
+    50% {
+        text-shadow: 0 0 28px rgba(0,247,255,0.75);
+    }
+    100% {
+        text-shadow: 0 0 10px rgba(0,247,255,0.25);
+    }
 }
 
 /* glow line */
 .glow-line {
-    width: 150px;
+    width: 160px;
     height: 2px;
     background: linear-gradient(90deg, #00f7ff, #00ff88);
-    box-shadow: 0 0 12px rgba(0,247,255,0.4);
+    box-shadow: 0 0 14px rgba(0,247,255,0.4);
     border-radius: 10px;
-    animation: linePulse 1.6s infinite alternate;
+
+    animation: linePulse 1.8s ease-in-out infinite alternate;
 }
 
 @keyframes linePulse {
-    from { transform: scaleX(0.8); opacity: 0.5; }
-    to { transform: scaleX(1.1); opacity: 1; }
+    from {
+        transform: scaleX(0.85);
+        opacity: 0.5;
+    }
+    to {
+        transform: scaleX(1.15);
+        opacity: 1;
+    }
 }
 
 /* loader */
 .loader-bar {
-    width: 270px;
+    width: 280px;
     height: 5px;
     background: rgba(255,255,255,0.08);
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 0 12px rgba(0,247,255,0.15);
+
+    box-shadow: 0 0 14px rgba(0,247,255,0.12);
 }
 
 .loader-fill {
     height: 100%;
     width: 0%;
     background: linear-gradient(90deg, #00f7ff, #00ff88);
-    animation: loadBar 3s ease forwards;
-    box-shadow: 0 0 15px rgba(0,247,255,0.4);
+    animation: loadBar 3.2s ease forwards;
+
+    box-shadow: 0 0 18px rgba(0,247,255,0.45);
 }
 
 @keyframes loadBar {
@@ -708,13 +734,14 @@ h2 {
 /* sub text */
 .sub-text {
     font-size: 12px;
-    color: rgba(255,255,255,0.55);
-    letter-spacing: 1px;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 1.2px;
+    margin-top: 2px;
 }
 
-/* glitch effect */
+/* glitch effect (improved, less aggressive) */
 .glitch {
-    animation: glitch 0.2s infinite;
+    animation: glitch 0.18s infinite;
 }
 
 @keyframes glitch {
@@ -729,7 +756,7 @@ h2 {
 /* moving background */
 @keyframes moveBg {
     from { transform: translateY(0); }
-    to { transform: translateY(-40px); }
+    to { transform: translateY(-42px); }
 }
 
 </style>
@@ -739,10 +766,9 @@ h2 {
 
     <!-- WELCOME SCREEN -->
 <div id="welcome-screen">
-
     <div class="welcome-box">
 
-        <h1 id="typing-text"></h1>
+        <div id="typing-text"></div>
 
         <div class="glow-line"></div>
 
@@ -750,10 +776,9 @@ h2 {
             <div class="loader-fill"></div>
         </div>
 
-        <p class="sub-text">Booting system...</p>
+        <div class="sub-text">Initializing portfolio system...</div>
 
     </div>
-
 </div>
 
 </div>
@@ -1337,37 +1362,39 @@ window.addEventListener("load", function () {
     const text = "Welcome to Emran Azizi Portfolio";
     let i = 0;
 
-    function typeEffect() {
-
-        // add glitch effect randomly (very subtle)
-        if (Math.random() > 0.85) {
-            typingEl.classList.add("glitch");
-            setTimeout(() => typingEl.classList.remove("glitch"), 120);
-        }
-
+    function type() {
         if (i < text.length) {
             typingEl.innerHTML += text.charAt(i);
             i++;
-            setTimeout(typeEffect, 55);
+            setTimeout(type, 55);
         }
     }
 
-    typeEffect();
+    type();
 
-    // slight staged delay (feels like boot system)
+    // optional glitch effect
     setTimeout(() => {
-        typingEl.innerHTML = "System Ready...";
+        typingEl.classList.add("glitch");
+    }, 1200);
+
+    setTimeout(() => {
+        typingEl.classList.remove("glitch");
+        typingEl.innerHTML = "System Ready";
     }, 2500);
 
+    // fade out screen
     setTimeout(() => {
-
         screen.style.opacity = "0";
 
         setTimeout(() => {
             screen.style.display = "none";
+
+            // trigger hero animation
+            document.body.classList.add("loaded");
+
         }, 800);
 
-    }, 3600);
+    }, 3800);
 
 });
 </script>
