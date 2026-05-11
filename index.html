@@ -589,9 +589,42 @@ h2 {
     margin: 8px auto 0 auto;
     border-radius: 5px;
 }
+
+    #welcome-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+
+    background: #05070f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 99999;
+
+    color: #00f7ff;
+    font-size: 28px;
+    font-weight: 600;
+    text-align: center;
+
+    opacity: 1;
+    transition: opacity 0.8s ease;
+}
+
+#welcome-screen.hide {
+    opacity: 0;
+    pointer-events: none;
+}
     
 </style>
 <body>
+
+    <!-- WELCOME SCREEN -->
+<div id="welcome-screen">
+    <h1>Welcome to Emran Azizi Portfolio Website</h1>
+</div>
 
 <canvas id="code"></canvas>
 
@@ -1138,26 +1171,44 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const form = document.getElementById("contact-form");
 
-  if (!form) return;
+  if (form) {
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
 
-  form.addEventListener("submit", function(event) {
-    event.preventDefault();
-
-    emailjs.send("service_emran", "template_y6hwt0b", {
-      name: this.name.value,
-      email: this.email.value,
-      message: this.message.value
-    })
-    .then(() => {
-      alert("Message sent successfully!");
-      this.reset();
-    })
-    .catch((error) => {
-      console.log(error);
-      alert("Failed to send message.");
+      emailjs.send("service_emran", "template_y6hwt0b", {
+        name: this.name.value,
+        email: this.email.value,
+        message: this.message.value
+      })
+      .then(() => {
+        alert("Message sent successfully!");
+        this.reset();
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("Failed to send message.");
+      });
     });
-  });
+  }
 
+});
+</script>
+
+<script>
+window.addEventListener("load", function () {
+    setTimeout(() => {
+        const screen = document.getElementById("welcome-screen");
+
+        // safety check (prevents errors if element not found)
+        if (!screen) return;
+
+        screen.classList.add("hide");
+
+        setTimeout(() => {
+            screen.style.display = "none";
+        }, 800);
+
+    }, 3000); // 3 seconds
 });
 </script>
 
