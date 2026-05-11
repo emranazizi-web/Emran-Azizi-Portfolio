@@ -572,6 +572,23 @@ h2 {
     letter-spacing: 0.3px;
 }
 
+    #message h2 {
+    text-align: center;
+    border-left: none;
+    padding-left: 0;
+    position: relative;
+    color: #00f7ff;
+}
+
+#message h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #00ff88;
+    margin: 8px auto 0 auto;
+    border-radius: 5px;
+}
     
 </style>
 <body>
@@ -990,13 +1007,13 @@ h2 {
 </div>
 </section>
 
-   <!-- MESSAGE FORM -->
+<!-- MESSAGE FORM -->
 <section id="message">
     <h2>Send Me a Message</h2>
 
-    <div class="card" style="max-width:600px; margin:auto;">
+    <div class="card" style="max-width:500px; margin:auto;">
 
-        <form id="contact-form">
+        <form id="contact-form" style="display:flex; flex-direction:column; align-items:center;">
 
             <input 
                 type="text" 
@@ -1004,13 +1021,15 @@ h2 {
                 placeholder="Your Name"
                 required
                 style="
-                    width:100%;
-                    padding:12px;
-                    margin-bottom:14px;
+                    width:90%;
+                    padding:10px;
+                    margin-bottom:10px;
                     background:rgba(255,255,255,0.05);
                     border:1px solid rgba(0,247,255,0.2);
                     border-radius:8px;
                     color:white;
+                    font-size:13px;
+                    outline:none;
                 "
             >
 
@@ -1020,13 +1039,15 @@ h2 {
                 placeholder="Your Email"
                 required
                 style="
-                    width:100%;
-                    padding:12px;
-                    margin-bottom:14px;
+                    width:90%;
+                    padding:10px;
+                    margin-bottom:10px;
                     background:rgba(255,255,255,0.05);
                     border:1px solid rgba(0,247,255,0.2);
                     border-radius:8px;
                     color:white;
+                    font-size:13px;
+                    outline:none;
                 "
             >
 
@@ -1034,23 +1055,25 @@ h2 {
                 name="message"
                 placeholder="Write your message..."
                 required
-                rows="6"
+                rows="5"
                 style="
-                    width:100%;
-                    padding:12px;
-                    margin-bottom:14px;
+                    width:90%;
+                    padding:10px;
+                    margin-bottom:12px;
                     background:rgba(255,255,255,0.05);
                     border:1px solid rgba(0,247,255,0.2);
                     border-radius:8px;
                     color:white;
+                    font-size:13px;
                     resize:none;
+                    outline:none;
                 "
             ></textarea>
 
             <button 
                 type="submit"
                 class="btn"
-                style="cursor:pointer;"
+                style="cursor:pointer; align-self:center;"
             >
                 Send Message
             </button>
