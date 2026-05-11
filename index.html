@@ -989,22 +989,13 @@ h2 {
 </div>
 </section>
 
-    <!-- MESSAGE FORM -->
+   <!-- MESSAGE FORM -->
 <section id="message">
     <h2>Send Me a Message</h2>
 
     <div class="card" style="max-width:600px; margin:auto;">
 
-        <form action="https://formsubmit.co/emranazizi1002@gmail.com" method="POST">
-
-            <!-- Disable captcha -->
-            <input type="hidden" name="_captcha" value="false">
-
-            <!-- Optional subject -->
-            <input type="hidden" name="_subject" value="New Portfolio Message">
-
-            <!-- Redirect after submit -->
-            <input type="hidden" name="_next" value="https://emranazizi-web.github.io/portfolio">
+        <form id="contact-form">
 
             <input 
                 type="text" 
@@ -1110,6 +1101,40 @@ function draw(){
 }
 
 setInterval(draw, 80);
+</script>
+
+<!-- EMAILJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  // INIT EMAILJS
+  emailjs.init("YOUR_PUBLIC_KEY");
+
+  const form = document.getElementById("contact-form");
+
+  if (!form) return;
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    emailjs.send("service_emran", "template_y6hwt0b", {
+      name: this.name.value,
+      email: this.email.value,
+      message: this.message.value
+    })
+    .then(() => {
+      alert("Message sent successfully!");
+      this.reset();
+    })
+    .catch((error) => {
+      console.log(error);
+      alert("Failed to send message.");
+    });
+  });
+
+});
 </script>
 
 </body>
